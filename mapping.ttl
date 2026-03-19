@@ -1,0 +1,933 @@
+@prefix : <https://purl.org/eore/mapping#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <https://purl.org/eore#> .
+
+# =============================================================================
+# LOGICAL SOURCE - shared CSV source for all TriplesMaps
+# =============================================================================
+
+# =============================================================================
+# 1. EXPERIMENT TRIPLES MAP
+# Top level class - one experiment per row
+# =============================================================================
+
+:ExperimentTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "experiments.csv";
+        rml:referenceFormulation ql:CSV
+    ];
+    rr:subjectMap [
+        rr:template "https://purl.org/eore/experiment/{id}";
+        rr:class ex:Experiment
+    ];
+
+    # Link to PaperMetadata
+    rr:predicateObjectMap [
+        rr:predicate ex:hasMetadata;
+        rr:objectMap [
+            rr:template "https://purl.org/eore/paper/{paper_doi}"
+        ]
+    ];
+
+    # Link to ExperimentSetup
+    rr:predicateObjectMap [
+        rr:predicate ex:hasSetup;
+        rr:objectMap [
+            rr:template "https://purl.org/eore/setup/{id}"
+        ]
+    ].
+
+
+# =============================================================================
+# 2. PAPER METADATA TRIPLES MAP
+# =============================================================================
+
+:PaperMetadataTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "experiments.csv";
+        rml:referenceFormulation ql:CSV
+    ];
+    rr:subjectMap [
+        rr:template "https://purl.org/eore/paper/{paper_doi}";
+        rr:class ex:PaperMetadata
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:paperTitle;
+        rr:objectMap [
+            rml:reference "paper_title";
+            rr:datatype xsd:string
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:paperAuthor;
+        rr:objectMap [
+            rml:reference "paper_author";
+            rr:datatype xsd:string
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:paperDoi;
+        rr:objectMap [
+            rml:reference "paper_doi";
+            rr:datatype xsd:string
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:paperYear;
+        rr:objectMap [
+            rml:reference "paper_year";
+            rr:datatype xsd:integer
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:paperJournal;
+        rr:objectMap [
+            rml:reference "paper_journal";
+            rr:datatype xsd:string
+        ]
+    ].
+
+
+# =============================================================================
+# 3. EXPERIMENT SETUP TRIPLES MAP
+# =============================================================================
+
+:ExperimentSetupTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "experiments.csv";
+        rml:referenceFormulation ql:CSV
+    ];
+    rr:subjectMap [
+        rr:template "https://purl.org/eore/setup/{id}";
+        rr:class ex:ExperimentSetup
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:systemType;
+        rr:objectMap [
+            rml:reference "system_type";
+            rr:datatype xsd:string
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:durationHrs;
+        rr:objectMap [
+            rml:reference "duration_hr";
+            rr:datatype xsd:decimal
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:replicatesCount;
+        rr:objectMap [
+            rml:reference "replicates_count";
+            rr:datatype xsd:integer
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:unknownReplicatesCount;
+        rr:objectMap [
+            rml:reference "unknown_replicates_count";
+            rr:datatype xsd:boolean
+        ]
+    ];
+
+    # Link to ExperimentType (Batch or Flowthrough)
+    rr:predicateObjectMap [
+        rr:predicate ex:hasExperimentType;
+        rr:objectMap [
+            rr:template "https://purl.org/eore/experimenttype/{id}"
+        ]
+    ].
+
+
+# =============================================================================
+# 4. BATCH TRIPLES MAP
+# Only for rows where experiment_type = batch
+# =============================================================================
+
+:BatchTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "experiments.csv";
+        rml:referenceFormulation ql:CSV
+    ];
+    rr:subjectMap [
+        rr:template "https://purl.org/eore/experimenttype/{id}";
+        rr:class ex:Batch
+    ];
+
+    # Link to LoadingConditions
+    rr:predicateObjectMap [
+        rr:predicate ex:hasConditions;
+        rr:objectMap [
+            rr:template "https://purl.org/eore/loadingconditions/{id}"
+        ]
+    ];
+
+    # Link to InitialState
+    rr:predicateObjectMap [
+        rr:predicate ex:hasPhase;
+        rr:objectMap [
+            rr:template "https://purl.org/eore/initialstate/{id}"
+        ]
+    ];
+
+    # Link to FinalState
+    rr:predicateObjectMap [
+        rr:predicate ex:hasPhase;
+        rr:objectMap [
+            rr:template "https://purl.org/eore/finalstate/{id}"
+        ]
+    ].
+
+
+# =============================================================================
+# 5. LOADING CONDITIONS TRIPLES MAP
+# =============================================================================
+
+:LoadingConditionsTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "experiments.csv";
+        rml:referenceFormulation ql:CSV
+    ];
+    rr:subjectMap [
+        rr:template "https://purl.org/eore/loadingconditions/{id}";
+        rr:class ex:LoadingConditions
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:pressure;
+        rr:objectMap [
+            rml:reference "loading_pressure_batch";
+            rr:datatype xsd:decimal
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:isRoomTemperature;
+        rr:objectMap [
+            rml:reference "loading_room_temperature_batch";
+            rr:datatype xsd:boolean
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:volume;
+        rr:objectMap [
+            rml:reference "loading_volume_batch";
+            rr:datatype xsd:decimal
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:containerMaterial;
+        rr:objectMap [
+            rml:reference "sample_containing_material_batch";
+            rr:datatype xsd:string
+        ]
+    ].
+
+
+# =============================================================================
+# 6. INITIAL STATE TRIPLES MAP
+# =============================================================================
+
+:InitialStateTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "experiments.csv";
+        rml:referenceFormulation ql:CSV
+    ];
+    rr:subjectMap [
+        rr:template "https://purl.org/eore/initialstate/{id}";
+        rr:class ex:InitialState
+    ];
+
+    # Link to InitialSystemConditions
+    rr:predicateObjectMap [
+        rr:predicate ex:hasConditions;
+        rr:objectMap [
+            rr:template "https://purl.org/eore/initialconditions/{id}"
+        ]
+    ];
+
+    # Link to InitialGasPhase
+    rr:predicateObjectMap [
+        rr:predicate ex:hasPhase;
+        rr:objectMap [
+            rr:template "https://purl.org/eore/initialgasphase/{id}"
+        ]
+    ];
+
+    # Link to InitialLiquidPhase
+    rr:predicateObjectMap [
+        rr:predicate ex:hasPhase;
+        rr:objectMap [
+            rr:template "https://purl.org/eore/initialliquidphase/{id}"
+        ]
+    ];
+
+    # Link to InitialSolidPhase
+    rr:predicateObjectMap [
+        rr:predicate ex:hasPhase;
+        rr:objectMap [
+            rr:template "https://purl.org/eore/initialsolidphase/{id}"
+        ]
+    ].
+
+
+# =============================================================================
+# 7. INITIAL SYSTEM CONDITIONS TRIPLES MAP
+# =============================================================================
+
+:InitialConditionsTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "experiments.csv";
+        rml:referenceFormulation ql:CSV
+    ];
+    rr:subjectMap [
+        rr:template "https://purl.org/eore/initialconditions/{id}";
+        rr:class ex:InitialSystemConditions
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:pressure;
+        rr:objectMap [
+            rml:reference "total_system_pressure_initial";
+            rr:datatype xsd:decimal
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:isIsobaric;
+        rr:objectMap [
+            rml:reference "is_isobaric_batch";
+            rr:datatype xsd:boolean
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:isRoomTemperature;
+        rr:objectMap [
+            rml:reference "room_temperature_initial";
+            rr:datatype xsd:boolean
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:temperature;
+        rr:objectMap [
+            rml:reference "temperature_initial";
+            rr:datatype xsd:decimal
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:isIsothermal;
+        rr:objectMap [
+            rml:reference "is_isothermal_batch";
+            rr:datatype xsd:boolean
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:volume;
+        rr:objectMap [
+            rml:reference "total_system_volume_initial";
+            rr:datatype xsd:decimal
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:isIsochoric;
+        rr:objectMap [
+            rml:reference "is_isochoric_batch";
+            rr:datatype xsd:boolean
+        ]
+    ].
+
+
+# =============================================================================
+# 8. INITIAL GAS PHASE TRIPLES MAP
+# =============================================================================
+
+:InitialGasPhaseTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "experiments.csv";
+        rml:referenceFormulation ql:CSV
+    ];
+    rr:subjectMap [
+        rr:template "https://purl.org/eore/initialgasphase/{id}";
+        rr:class ex:GasPhase
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:ambientAtmosphere;
+        rr:objectMap [
+            rml:reference "ambient_atmosphere_initial";
+            rr:datatype xsd:boolean
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:gasName;
+        rr:objectMap [
+            rml:reference "gas_name_initial_1";
+            rr:datatype xsd:string
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:gasConcentration;
+        rr:objectMap [
+            rml:reference "gas_concentration_initial_1";
+            rr:datatype xsd:decimal
+        ]
+    ].
+
+
+# =============================================================================
+# 9. INITIAL LIQUID PHASE TRIPLES MAP
+# =============================================================================
+
+:InitialLiquidPhaseTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "experiments.csv";
+        rml:referenceFormulation ql:CSV
+    ];
+    rr:subjectMap [
+        rr:template "https://purl.org/eore/initialliquidphase/{id}";
+        rr:class ex:LiquidPhase
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:solventType;
+        rr:objectMap [
+            rml:reference "solvent_type_initial_1";
+            rr:datatype xsd:string
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:soluteName;
+        rr:objectMap [
+            rml:reference "solute_name_initial_1";
+            rr:datatype xsd:string
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:soluteConcentration;
+        rr:objectMap [
+            rml:reference "solute_concentration_initial_1";
+            rr:datatype xsd:decimal
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:soluteName;
+        rr:objectMap [
+            rml:reference "solute_name_initial_2";
+            rr:datatype xsd:string
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:soluteConcentration;
+        rr:objectMap [
+            rml:reference "solute_concentration_initial_2";
+            rr:datatype xsd:decimal
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:soluteName;
+        rr:objectMap [
+            rml:reference "solute_name_initial_3";
+            rr:datatype xsd:string
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:soluteConcentration;
+        rr:objectMap [
+            rml:reference "solute_concentration_initial_3";
+            rr:datatype xsd:decimal
+        ]
+    ].
+
+
+# =============================================================================
+# 10. INITIAL SOLID PHASE TRIPLES MAP
+# =============================================================================
+
+:InitialSolidPhaseTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "experiments.csv";
+        rml:referenceFormulation ql:CSV
+    ];
+    rr:subjectMap [
+        rr:template "https://purl.org/eore/initialsolidphase/{id}";
+        rr:class ex:SolidPhase
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:solidType;
+        rr:objectMap [
+            rml:reference "solid_type_initial_1";
+            rr:datatype xsd:string
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:solidName;
+        rr:objectMap [
+            rml:reference "solid_name_initial_1";
+            rr:datatype xsd:string
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:solidMass;
+        rr:objectMap [
+            rml:reference "solid_mass_initial_1";
+            rr:datatype xsd:decimal
+        ]
+    ].
+
+
+# =============================================================================
+# 11. FINAL STATE TRIPLES MAP
+# =============================================================================
+
+:FinalStateTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "experiments.csv";
+        rml:referenceFormulation ql:CSV
+    ];
+    rr:subjectMap [
+        rr:template "https://purl.org/eore/finalstate/{id}";
+        rr:class ex:FinalState
+    ];
+
+    # Link to FinalSystemConditions
+    rr:predicateObjectMap [
+        rr:predicate ex:hasConditions;
+        rr:objectMap [
+            rr:template "https://purl.org/eore/finalconditions/{id}"
+        ]
+    ];
+
+    # Link to FinalGasPhase
+    rr:predicateObjectMap [
+        rr:predicate ex:hasPhase;
+        rr:objectMap [
+            rr:template "https://purl.org/eore/finalgasphase/{id}"
+        ]
+    ];
+
+    # Link to FinalLiquidPhase
+    rr:predicateObjectMap [
+        rr:predicate ex:hasPhase;
+        rr:objectMap [
+            rr:template "https://purl.org/eore/finalliquidphase/{id}"
+        ]
+    ];
+
+    # Link to FinalSolidPhase
+    rr:predicateObjectMap [
+        rr:predicate ex:hasPhase;
+        rr:objectMap [
+            rr:template "https://purl.org/eore/finalsolidphase/{id}"
+        ]
+    ].
+
+
+# =============================================================================
+# 12. FINAL SYSTEM CONDITIONS TRIPLES MAP
+# =============================================================================
+
+:FinalConditionsTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "experiments.csv";
+        rml:referenceFormulation ql:CSV
+    ];
+    rr:subjectMap [
+        rr:template "https://purl.org/eore/finalconditions/{id}";
+        rr:class ex:FinalSystemConditions
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:pressure;
+        rr:objectMap [
+            rml:reference "total_system_pressure_final";
+            rr:datatype xsd:decimal
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:temperature;
+        rr:objectMap [
+            rml:reference "temperature_final";
+            rr:datatype xsd:decimal
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:isRoomTemperature;
+        rr:objectMap [
+            rml:reference "room_temperature_final";
+            rr:datatype xsd:boolean
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:volume;
+        rr:objectMap [
+            rml:reference "total_system_volume_final";
+            rr:datatype xsd:decimal
+        ]
+    ].
+
+
+# =============================================================================
+# 13. FINAL GAS PHASE TRIPLES MAP
+# =============================================================================
+
+:FinalGasPhaseTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "experiments.csv";
+        rml:referenceFormulation ql:CSV
+    ];
+    rr:subjectMap [
+        rr:template "https://purl.org/eore/finalgasphase/{id}";
+        rr:class ex:GasPhase
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:ambientAtmosphere;
+        rr:objectMap [
+            rml:reference "ambient_atmosphere_final";
+            rr:datatype xsd:boolean
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:gasName;
+        rr:objectMap [
+            rml:reference "gas_name_final_1";
+            rr:datatype xsd:string
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:gasConcentration;
+        rr:objectMap [
+            rml:reference "gas_concentration_final_1";
+            rr:datatype xsd:decimal
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:gasIsMeasured;
+        rr:objectMap [
+            rml:reference "gas_is_measured_final_1";
+            rr:datatype xsd:boolean
+        ]
+    ].
+
+
+# =============================================================================
+# 14. FINAL LIQUID PHASE TRIPLES MAP
+# =============================================================================
+
+:FinalLiquidPhaseTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "experiments.csv";
+        rml:referenceFormulation ql:CSV
+    ];
+    rr:subjectMap [
+        rr:template "https://purl.org/eore/finalliquidphase/{id}";
+        rr:class ex:LiquidPhase
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:soluteName;
+        rr:objectMap [
+            rml:reference "solute_name_final_1";
+            rr:datatype xsd:string
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:soluteConcentration;
+        rr:objectMap [
+            rml:reference "solute_concentration_final_1";
+            rr:datatype xsd:decimal
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:soluteConcentrationUnknown;
+        rr:objectMap [
+            rml:reference "solute_concentration_unknown_final_1";
+            rr:datatype xsd:boolean
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:soluteName;
+        rr:objectMap [
+            rml:reference "solute_name_final_2";
+            rr:datatype xsd:string
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:soluteConcentrationUnknown;
+        rr:objectMap [
+            rml:reference "solute_concentration_unknown_final_2";
+            rr:datatype xsd:boolean
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:isPolymer;
+        rr:objectMap [
+            rml:reference "is_polymer_final_2";
+            rr:datatype xsd:boolean
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:soluteName;
+        rr:objectMap [
+            rml:reference "solute_name_final_3";
+            rr:datatype xsd:string
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:soluteConcentration;
+        rr:objectMap [
+            rml:reference "solute_concentration_final_3";
+            rr:datatype xsd:decimal
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:soluteConcentrationUnknown;
+        rr:objectMap [
+            rml:reference "solute_concentration_unknown_final_3";
+            rr:datatype xsd:boolean
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:isPolymer;
+        rr:objectMap [
+            rml:reference "is_polymer_final_3";
+            rr:datatype xsd:boolean
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:polymerLengthUnknown;
+        rr:objectMap [
+            rml:reference "polymer_length_unknown_final_3";
+            rr:datatype xsd:boolean
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:polymerLength;
+        rr:objectMap [
+            rml:reference "max_polymer_length_final_3";
+            rr:datatype xsd:decimal
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:noOfUniqueMonomers;
+        rr:objectMap [
+            rml:reference "number_of_unique_monomers_final_3";
+            rr:datatype xsd:integer
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:liquidIsMeasured;
+        rr:objectMap [
+            rml:reference "liquid_is_measured_final_3";
+            rr:datatype xsd:boolean
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:soluteName;
+        rr:objectMap [
+            rml:reference "solute_name_final_4";
+            rr:datatype xsd:string
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:soluteConcentration;
+        rr:objectMap [
+            rml:reference "solute_concentration_final_4";
+            rr:datatype xsd:decimal
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:soluteConcentrationUnknown;
+        rr:objectMap [
+            rml:reference "solute_concentration_unknown_final_4";
+            rr:datatype xsd:boolean
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:isPolymer;
+        rr:objectMap [
+            rml:reference "is_polymer_final_4";
+            rr:datatype xsd:boolean
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:polymerLengthUnknown;
+        rr:objectMap [
+            rml:reference "polymer_length_unknown_final_4";
+            rr:datatype xsd:boolean
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:polymerLength;
+        rr:objectMap [
+            rml:reference "max_polymer_length_final_4";
+            rr:datatype xsd:decimal
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:noOfUniqueMonomers;
+        rr:objectMap [
+            rml:reference "number_of_unique_monomers_final_4";
+            rr:datatype xsd:integer
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:soluteName;
+        rr:objectMap [
+            rml:reference "solute_name_final_5";
+            rr:datatype xsd:string
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:soluteConcentration;
+        rr:objectMap [
+            rml:reference "solute_concentration_final_5";
+            rr:datatype xsd:decimal
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:soluteConcentrationUnknown;
+        rr:objectMap [
+            rml:reference "solute_concentration_unknown_final_5";
+            rr:datatype xsd:boolean
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:isPolymer;
+        rr:objectMap [
+            rml:reference "is_polymer_final_5";
+            rr:datatype xsd:boolean
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:monomerName;
+        rr:objectMap [
+            rml:reference "monomer_name_final_1";
+            rr:datatype xsd:string
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:freqOfMonomer;
+        rr:objectMap [
+            rml:reference "frequency_of_monomer_1";
+            rr:datatype xsd:integer
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:monomerName;
+        rr:objectMap [
+            rml:reference "monomer_name_final_2";
+            rr:datatype xsd:string
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:freqOfMonomer;
+        rr:objectMap [
+            rml:reference "frequency_of_monomer_2";
+            rr:datatype xsd:integer
+        ]
+    ].
+
+
+# =============================================================================
+# 15. FINAL SOLID PHASE TRIPLES MAP
+# =============================================================================
+
+:FinalSolidPhaseTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "experiments.csv";
+        rml:referenceFormulation ql:CSV
+    ];
+    rr:subjectMap [
+        rr:template "https://purl.org/eore/finalsolidphase/{id}";
+        rr:class ex:SolidPhase
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:solidName;
+        rr:objectMap [
+            rml:reference "solid_name_final_1";
+            rr:datatype xsd:string
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:solidMass;
+        rr:objectMap [
+            rml:reference "solid_mass_final_1";
+            rr:datatype xsd:decimal
+        ]
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:solidIsMeasured;
+        rr:objectMap [
+            rml:reference "solid_is_measured_final_1";
+            rr:datatype xsd:boolean
+        ]
+    ].
