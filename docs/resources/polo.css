@@ -306,6 +306,14 @@ a:hover {
   color: #000000;
 }
 
+/* ── WebVOWL iframe ── */
+#webvowl-frame {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  margin-top: 1rem;
+  display: block;
+}
+
 /* ── Page title ── */
 #page-title {
   padding: 2.5rem 0 1.5rem 0;
