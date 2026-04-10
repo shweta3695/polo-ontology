@@ -4,7 +4,7 @@
 @prefix ql: <http://semweb.mmlab.be/ns/ql#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix ex: <https://purl.org/polo#> .
+@prefix polo: <https://purl.org/polo#> .
 
 # =============================================================================
 # LOGICAL SOURCE - shared CSV source for all TriplesMaps
@@ -22,12 +22,12 @@
     ];
     rr:subjectMap [
         rr:template "https://purl.org/polo/experiment/{id}";
-        rr:class ex:Experiment
+        rr:class polo:Experiment
     ];
 
     # Link to PaperMetadata
     rr:predicateObjectMap [
-        rr:predicate ex:hasMetadata;
+        rr:predicate polo:hasMetadata;
         rr:objectMap [
             rr:template "https://purl.org/polo/paper/{paper_doi}"
         ]
@@ -35,7 +35,7 @@
 
     # Link to ExperimentSetup
     rr:predicateObjectMap [
-        rr:predicate ex:hasSetup;
+        rr:predicate polo:hasSetup;
         rr:objectMap [
             rr:template "https://purl.org/polo/setup/{id}"
         ]
@@ -53,11 +53,11 @@
     ];
     rr:subjectMap [
         rr:template "https://purl.org/polo/paper/{paper_doi}";
-        rr:class ex:PaperMetadata
+        rr:class polo:PaperMetadata
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:paperTitle;
+        rr:predicate polo:paperTitle;
         rr:objectMap [
             rml:reference "paper_title";
             rr:datatype xsd:string
@@ -65,7 +65,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:paperAuthor;
+        rr:predicate polo:paperAuthor;
         rr:objectMap [
             rml:reference "paper_author";
             rr:datatype xsd:string
@@ -73,7 +73,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:paperDoi;
+        rr:predicate polo:paperDoi;
         rr:objectMap [
             rml:reference "paper_doi";
             rr:datatype xsd:string
@@ -81,7 +81,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:paperYear;
+        rr:predicate polo:paperYear;
         rr:objectMap [
             rml:reference "paper_year";
             rr:datatype xsd:integer
@@ -89,7 +89,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:paperJournal;
+        rr:predicate polo:paperJournal;
         rr:objectMap [
             rml:reference "paper_journal";
             rr:datatype xsd:string
@@ -108,11 +108,11 @@
     ];
     rr:subjectMap [
         rr:template "https://purl.org/polo/setup/{id}";
-        rr:class ex:ExperimentSetup
+        rr:class polo:ExperimentSetup
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:systemType;
+        rr:predicate polo:systemType;
         rr:objectMap [
             rml:reference "system_type";
             rr:datatype xsd:string
@@ -120,7 +120,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:durationHrs;
+        rr:predicate polo:durationHrs;
         rr:objectMap [
             rml:reference "duration_hr";
             rr:datatype xsd:decimal
@@ -128,7 +128,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:replicatesCount;
+        rr:predicate polo:replicatesCount;
         rr:objectMap [
             rml:reference "replicates_count";
             rr:datatype xsd:integer
@@ -136,7 +136,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:unknownReplicatesCount;
+        rr:predicate polo:unknownReplicatesCount;
         rr:objectMap [
             rml:reference "unknown_replicates_count";
             rr:datatype xsd:boolean
@@ -145,7 +145,7 @@
 
     # Link to ExperimentType (Batch or Flowthrough)
     rr:predicateObjectMap [
-        rr:predicate ex:hasExperimentType;
+        rr:predicate polo:hasExperimentType;
         rr:objectMap [
             rr:template "https://purl.org/polo/experimenttype/{id}"
         ]
@@ -164,12 +164,12 @@
     ];
     rr:subjectMap [
         rr:template "https://purl.org/polo/experimenttype/{id}";
-        rr:class ex:Batch
+        rr:class polo:Batch
     ];
 
     # Link to LoadingConditions
     rr:predicateObjectMap [
-        rr:predicate ex:hasConditions;
+        rr:predicate polo:hasConditions;
         rr:objectMap [
             rr:template "https://purl.org/polo/loadingconditions/{id}"
         ]
@@ -177,7 +177,7 @@
 
     # Link to InitialState
     rr:predicateObjectMap [
-        rr:predicate ex:hasState;
+        rr:predicate polo:hasState;
         rr:objectMap [
             rr:template "https://purl.org/polo/initialstate/{id}"
         ]
@@ -185,7 +185,7 @@
 
     # Link to FinalState
     rr:predicateObjectMap [
-        rr:predicate ex:hasState;
+        rr:predicate polo:hasState;
         rr:objectMap [
             rr:template "https://purl.org/polo/finalstate/{id}"
         ]
@@ -203,11 +203,11 @@
     ];
     rr:subjectMap [
         rr:template "https://purl.org/polo/loadingconditions/{id}";
-        rr:class ex:LoadingConditions
+        rr:class polo:LoadingConditions
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:pressure;
+        rr:predicate polo:pressure;
         rr:objectMap [
             rml:reference "loading_pressure_batch";
             rr:datatype xsd:decimal
@@ -215,7 +215,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:isRoomTemperature;
+        rr:predicate polo:isRoomTemperature;
         rr:objectMap [
             rml:reference "loading_room_temperature_batch";
             rr:datatype xsd:boolean
@@ -223,7 +223,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:volume;
+        rr:predicate polo:volume;
         rr:objectMap [
             rml:reference "loading_volume_batch";
             rr:datatype xsd:decimal
@@ -231,7 +231,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:containerMaterial;
+        rr:predicate polo:containerMaterial;
         rr:objectMap [
             rml:reference "sample_containing_material_batch";
             rr:datatype xsd:string
@@ -250,12 +250,12 @@
     ];
     rr:subjectMap [
         rr:template "https://purl.org/polo/initialstate/{id}";
-        rr:class ex:InitialState
+        rr:class polo:InitialState
     ];
 
     # Link to InitialSystemConditions
     rr:predicateObjectMap [
-        rr:predicate ex:hasConditions;
+        rr:predicate polo:hasConditions;
         rr:objectMap [
             rr:template "https://purl.org/polo/initialconditions/{id}"
         ]
@@ -263,7 +263,7 @@
 
     # Link to InitialGasPhase
     rr:predicateObjectMap [
-        rr:predicate ex:hasPhase;
+        rr:predicate polo:hasPhase;
         rr:objectMap [
             rr:template "https://purl.org/polo/initialgasphase/{id}"
         ]
@@ -271,7 +271,7 @@
 
     # Link to InitialLiquidPhase
     rr:predicateObjectMap [
-        rr:predicate ex:hasPhase;
+        rr:predicate polo:hasPhase;
         rr:objectMap [
             rr:template "https://purl.org/polo/initialliquidphase/{id}"
         ]
@@ -279,7 +279,7 @@
 
     # Link to InitialSolidPhase
     rr:predicateObjectMap [
-        rr:predicate ex:hasPhase;
+        rr:predicate polo:hasPhase;
         rr:objectMap [
             rr:template "https://purl.org/polo/initialsolidphase/{id}"
         ]
@@ -297,11 +297,11 @@
     ];
     rr:subjectMap [
         rr:template "https://purl.org/polo/initialconditions/{id}";
-        rr:class ex:InitialSystemConditions
+        rr:class polo:InitialSystemConditions
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:pressure;
+        rr:predicate polo:pressure;
         rr:objectMap [
             rml:reference "total_system_pressure_initial";
             rr:datatype xsd:decimal
@@ -309,7 +309,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:isIsobaric;
+        rr:predicate polo:isIsobaric;
         rr:objectMap [
             rml:reference "is_isobaric_batch";
             rr:datatype xsd:boolean
@@ -317,7 +317,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:isRoomTemperature;
+        rr:predicate polo:isRoomTemperature;
         rr:objectMap [
             rml:reference "room_temperature_initial";
             rr:datatype xsd:boolean
@@ -325,7 +325,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:temperature;
+        rr:predicate polo:temperature;
         rr:objectMap [
             rml:reference "temperature_initial";
             rr:datatype xsd:decimal
@@ -333,7 +333,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:isIsothermal;
+        rr:predicate polo:isIsothermal;
         rr:objectMap [
             rml:reference "is_isothermal_batch";
             rr:datatype xsd:boolean
@@ -341,7 +341,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:volume;
+        rr:predicate polo:volume;
         rr:objectMap [
             rml:reference "total_system_volume_initial";
             rr:datatype xsd:decimal
@@ -349,7 +349,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:isIsochoric;
+        rr:predicate polo:isIsochoric;
         rr:objectMap [
             rml:reference "is_isochoric_batch";
             rr:datatype xsd:boolean
@@ -368,11 +368,11 @@
     ];
     rr:subjectMap [
         rr:template "https://purl.org/polo/initialgasphase/{id}";
-        rr:class ex:GasPhase
+        rr:class polo:GasPhase
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:ambientAtmosphere;
+        rr:predicate polo:ambientAtmosphere;
         rr:objectMap [
             rml:reference "ambient_atmosphere_initial";
             rr:datatype xsd:boolean
@@ -380,7 +380,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:gasName;
+        rr:predicate polo:gasName;
         rr:objectMap [
             rml:reference "gas_name_initial_1";
             rr:datatype xsd:string
@@ -388,7 +388,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:gasConcentration;
+        rr:predicate polo:gasConcentration;
         rr:objectMap [
             rml:reference "gas_concentration_initial_1";
             rr:datatype xsd:decimal
@@ -407,11 +407,11 @@
     ];
     rr:subjectMap [
         rr:template "https://purl.org/polo/initialliquidphase/{id}";
-        rr:class ex:LiquidPhase
+        rr:class polo:LiquidPhase
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:solventType;
+        rr:predicate polo:solventType;
         rr:objectMap [
             rml:reference "solvent_type_initial_1";
             rr:datatype xsd:string
@@ -419,7 +419,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:soluteName;
+        rr:predicate polo:soluteName;
         rr:objectMap [
             rml:reference "solute_name_initial_1";
             rr:datatype xsd:string
@@ -427,7 +427,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:soluteConcentration;
+        rr:predicate polo:soluteConcentration;
         rr:objectMap [
             rml:reference "solute_concentration_initial_1";
             rr:datatype xsd:decimal
@@ -435,7 +435,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:soluteName;
+        rr:predicate polo:soluteName;
         rr:objectMap [
             rml:reference "solute_name_initial_2";
             rr:datatype xsd:string
@@ -443,7 +443,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:soluteConcentration;
+        rr:predicate polo:soluteConcentration;
         rr:objectMap [
             rml:reference "solute_concentration_initial_2";
             rr:datatype xsd:decimal
@@ -451,7 +451,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:soluteName;
+        rr:predicate polo:soluteName;
         rr:objectMap [
             rml:reference "solute_name_initial_3";
             rr:datatype xsd:string
@@ -459,7 +459,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:soluteConcentration;
+        rr:predicate polo:soluteConcentration;
         rr:objectMap [
             rml:reference "solute_concentration_initial_3";
             rr:datatype xsd:decimal
@@ -478,11 +478,11 @@
     ];
     rr:subjectMap [
         rr:template "https://purl.org/polo/initialsolidphase/{id}";
-        rr:class ex:SolidPhase
+        rr:class polo:SolidPhase
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:solidType;
+        rr:predicate polo:solidType;
         rr:objectMap [
             rml:reference "solid_type_initial_1";
             rr:datatype xsd:string
@@ -490,7 +490,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:solidName;
+        rr:predicate polo:solidName;
         rr:objectMap [
             rml:reference "solid_name_initial_1";
             rr:datatype xsd:string
@@ -498,7 +498,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:solidMass;
+        rr:predicate polo:solidMass;
         rr:objectMap [
             rml:reference "solid_mass_initial_1";
             rr:datatype xsd:decimal
@@ -517,12 +517,12 @@
     ];
     rr:subjectMap [
         rr:template "https://purl.org/polo/finalstate/{id}";
-        rr:class ex:FinalState
+        rr:class polo:FinalState
     ];
 
     # Link to FinalSystemConditions
     rr:predicateObjectMap [
-        rr:predicate ex:hasConditions;
+        rr:predicate polo:hasConditions;
         rr:objectMap [
             rr:template "https://purl.org/polo/finalconditions/{id}"
         ]
@@ -530,7 +530,7 @@
 
     # Link to FinalGasPhase
     rr:predicateObjectMap [
-        rr:predicate ex:hasPhase;
+        rr:predicate polo:hasPhase;
         rr:objectMap [
             rr:template "https://purl.org/polo/finalgasphase/{id}"
         ]
@@ -538,7 +538,7 @@
 
     # Link to FinalLiquidPhase
     rr:predicateObjectMap [
-        rr:predicate ex:hasPhase;
+        rr:predicate polo:hasPhase;
         rr:objectMap [
             rr:template "https://purl.org/polo/finalliquidphase/{id}"
         ]
@@ -546,7 +546,7 @@
 
     # Link to FinalSolidPhase
     rr:predicateObjectMap [
-        rr:predicate ex:hasPhase;
+        rr:predicate polo:hasPhase;
         rr:objectMap [
             rr:template "https://purl.org/polo/finalsolidphase/{id}"
         ]
@@ -564,11 +564,11 @@
     ];
     rr:subjectMap [
         rr:template "https://purl.org/polo/finalconditions/{id}";
-        rr:class ex:FinalSystemConditions
+        rr:class polo:FinalSystemConditions
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:pressure;
+        rr:predicate polo:pressure;
         rr:objectMap [
             rml:reference "total_system_pressure_final";
             rr:datatype xsd:decimal
@@ -576,7 +576,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:temperature;
+        rr:predicate polo:temperature;
         rr:objectMap [
             rml:reference "temperature_final";
             rr:datatype xsd:decimal
@@ -584,7 +584,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:isRoomTemperature;
+        rr:predicate polo:isRoomTemperature;
         rr:objectMap [
             rml:reference "room_temperature_final";
             rr:datatype xsd:boolean
@@ -592,7 +592,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:volume;
+        rr:predicate polo:volume;
         rr:objectMap [
             rml:reference "total_system_volume_final";
             rr:datatype xsd:decimal
@@ -611,11 +611,11 @@
     ];
     rr:subjectMap [
         rr:template "https://purl.org/polo/finalgasphase/{id}";
-        rr:class ex:GasPhase
+        rr:class polo:GasPhase
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:ambientAtmosphere;
+        rr:predicate polo:ambientAtmosphere;
         rr:objectMap [
             rml:reference "ambient_atmosphere_final";
             rr:datatype xsd:boolean
@@ -623,7 +623,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:gasName;
+        rr:predicate polo:gasName;
         rr:objectMap [
             rml:reference "gas_name_final_1";
             rr:datatype xsd:string
@@ -631,7 +631,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:gasConcentration;
+        rr:predicate polo:gasConcentration;
         rr:objectMap [
             rml:reference "gas_concentration_final_1";
             rr:datatype xsd:decimal
@@ -639,7 +639,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:gasIsMeasured;
+        rr:predicate polo:gasIsMeasured;
         rr:objectMap [
             rml:reference "gas_is_measured_final_1";
             rr:datatype xsd:boolean
@@ -658,11 +658,11 @@
     ];
     rr:subjectMap [
         rr:template "https://purl.org/polo/finalliquidphase/{id}";
-        rr:class ex:LiquidPhase
+        rr:class polo:LiquidPhase
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:soluteName;
+        rr:predicate polo:soluteName;
         rr:objectMap [
             rml:reference "solute_name_final_1";
             rr:datatype xsd:string
@@ -670,7 +670,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:soluteConcentration;
+        rr:predicate polo:soluteConcentration;
         rr:objectMap [
             rml:reference "solute_concentration_final_1";
             rr:datatype xsd:decimal
@@ -678,7 +678,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:soluteConcentrationUnknown;
+        rr:predicate polo:soluteConcentrationUnknown;
         rr:objectMap [
             rml:reference "solute_concentration_unknown_final_1";
             rr:datatype xsd:boolean
@@ -686,7 +686,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:soluteName;
+        rr:predicate polo:soluteName;
         rr:objectMap [
             rml:reference "solute_name_final_2";
             rr:datatype xsd:string
@@ -694,7 +694,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:soluteConcentrationUnknown;
+        rr:predicate polo:soluteConcentrationUnknown;
         rr:objectMap [
             rml:reference "solute_concentration_unknown_final_2";
             rr:datatype xsd:boolean
@@ -702,7 +702,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:isPolymer;
+        rr:predicate polo:isPolymer;
         rr:objectMap [
             rml:reference "is_polymer_final_2";
             rr:datatype xsd:boolean
@@ -710,7 +710,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:soluteName;
+        rr:predicate polo:soluteName;
         rr:objectMap [
             rml:reference "solute_name_final_3";
             rr:datatype xsd:string
@@ -718,7 +718,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:soluteConcentration;
+        rr:predicate polo:soluteConcentration;
         rr:objectMap [
             rml:reference "solute_concentration_final_3";
             rr:datatype xsd:decimal
@@ -726,7 +726,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:soluteConcentrationUnknown;
+        rr:predicate polo:soluteConcentrationUnknown;
         rr:objectMap [
             rml:reference "solute_concentration_unknown_final_3";
             rr:datatype xsd:boolean
@@ -734,7 +734,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:isPolymer;
+        rr:predicate polo:isPolymer;
         rr:objectMap [
             rml:reference "is_polymer_final_3";
             rr:datatype xsd:boolean
@@ -742,7 +742,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:polymerLengthUnknown;
+        rr:predicate polo:polymerLengthUnknown;
         rr:objectMap [
             rml:reference "polymer_length_unknown_final_3";
             rr:datatype xsd:boolean
@@ -750,7 +750,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:polymerLength;
+        rr:predicate polo:polymerLength;
         rr:objectMap [
             rml:reference "max_polymer_length_final_3";
             rr:datatype xsd:decimal
@@ -758,7 +758,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:noOfUniqueMonomers;
+        rr:predicate polo:noOfUniqueMonomers;
         rr:objectMap [
             rml:reference "number_of_unique_monomers_final_3";
             rr:datatype xsd:integer
@@ -766,7 +766,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:liquidIsMeasured;
+        rr:predicate polo:liquidIsMeasured;
         rr:objectMap [
             rml:reference "liquid_is_measured_final_3";
             rr:datatype xsd:boolean
@@ -774,7 +774,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:soluteName;
+        rr:predicate polo:soluteName;
         rr:objectMap [
             rml:reference "solute_name_final_4";
             rr:datatype xsd:string
@@ -782,7 +782,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:soluteConcentration;
+        rr:predicate polo:soluteConcentration;
         rr:objectMap [
             rml:reference "solute_concentration_final_4";
             rr:datatype xsd:decimal
@@ -790,7 +790,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:soluteConcentrationUnknown;
+        rr:predicate polo:soluteConcentrationUnknown;
         rr:objectMap [
             rml:reference "solute_concentration_unknown_final_4";
             rr:datatype xsd:boolean
@@ -798,7 +798,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:isPolymer;
+        rr:predicate polo:isPolymer;
         rr:objectMap [
             rml:reference "is_polymer_final_4";
             rr:datatype xsd:boolean
@@ -806,7 +806,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:polymerLengthUnknown;
+        rr:predicate polo:polymerLengthUnknown;
         rr:objectMap [
             rml:reference "polymer_length_unknown_final_4";
             rr:datatype xsd:boolean
@@ -814,7 +814,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:polymerLength;
+        rr:predicate polo:polymerLength;
         rr:objectMap [
             rml:reference "max_polymer_length_final_4";
             rr:datatype xsd:decimal
@@ -822,7 +822,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:noOfUniqueMonomers;
+        rr:predicate polo:noOfUniqueMonomers;
         rr:objectMap [
             rml:reference "number_of_unique_monomers_final_4";
             rr:datatype xsd:integer
@@ -830,7 +830,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:soluteName;
+        rr:predicate polo:soluteName;
         rr:objectMap [
             rml:reference "solute_name_final_5";
             rr:datatype xsd:string
@@ -838,7 +838,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:soluteConcentration;
+        rr:predicate polo:soluteConcentration;
         rr:objectMap [
             rml:reference "solute_concentration_final_5";
             rr:datatype xsd:decimal
@@ -846,7 +846,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:soluteConcentrationUnknown;
+        rr:predicate polo:soluteConcentrationUnknown;
         rr:objectMap [
             rml:reference "solute_concentration_unknown_final_5";
             rr:datatype xsd:boolean
@@ -854,7 +854,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:isPolymer;
+        rr:predicate polo:isPolymer;
         rr:objectMap [
             rml:reference "is_polymer_final_5";
             rr:datatype xsd:boolean
@@ -862,7 +862,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:monomerName;
+        rr:predicate polo:monomerName;
         rr:objectMap [
             rml:reference "monomer_name_final_1";
             rr:datatype xsd:string
@@ -870,7 +870,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:freqOfMonomer;
+        rr:predicate polo:freqOfMonomer;
         rr:objectMap [
             rml:reference "frequency_of_monomer_1";
             rr:datatype xsd:integer
@@ -878,7 +878,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:monomerName;
+        rr:predicate polo:monomerName;
         rr:objectMap [
             rml:reference "monomer_name_final_2";
             rr:datatype xsd:string
@@ -886,7 +886,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:freqOfMonomer;
+        rr:predicate polo:freqOfMonomer;
         rr:objectMap [
             rml:reference "frequency_of_monomer_2";
             rr:datatype xsd:integer
@@ -905,11 +905,11 @@
     ];
     rr:subjectMap [
         rr:template "https://purl.org/polo/finalsolidphase/{id}";
-        rr:class ex:SolidPhase
+        rr:class polo:SolidPhase
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:solidName;
+        rr:predicate polo:solidName;
         rr:objectMap [
             rml:reference "solid_name_final_1";
             rr:datatype xsd:string
@@ -917,7 +917,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:solidMass;
+        rr:predicate polo:solidMass;
         rr:objectMap [
             rml:reference "solid_mass_final_1";
             rr:datatype xsd:decimal
@@ -925,7 +925,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ex:solidIsMeasured;
+        rr:predicate polo:solidIsMeasured;
         rr:objectMap [
             rml:reference "solid_is_measured_final_1";
             rr:datatype xsd:boolean
