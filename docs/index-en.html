@@ -30,6 +30,7 @@ $(function(){
 
   // Build TOC from all .list headings
   loadTOC();
+
 });
 
 $.fn.ignore = function(sel){
@@ -60,14 +61,12 @@ function loadTOC(){
 <body>
 
 <nav id="topnav">
-  <span id="topnav-title">Prebiotic Origins of Life Ontology (POLO)</span>
-  <div id="topnav-tabs">
-    <a href="#abstract-heading">Abstract</a>
-    <a href="#intro">Introduction</a>
-    <a href="#overv">Overview</a>
-    <a href="#desc">Description</a>
-    <a href="#crossreference">Cross-Reference</a>
-    <a href="#ref">References</a>
+  <div id="topnav-left">
+    <a href="#" id="topnav-title">Prebiotic Origins of Life Ontology (POLO)</a>
+  </div>
+  <div id="topnav-right">
+    <a href="#">Home</a>
+    <a href="https://github.com/shweta3695/polo-ontology" target="_blank">GitHub Project</a>
   </div>
 </nav>
 
@@ -89,6 +88,11 @@ function loadTOC(){
 
 <div id="main-content">
 <div class="container">
+<div id="page-title">
+  <h1>PREBIOTIC ORIGINS OF LIFE ONTOLOGY (POLO): A FORMAL, DOMAIN-SPECIFIC ONTOLOGY FOR EXPERIMENTAL PREBIOTIC CHEMISTRY.</h1>
+  <p id="page-subtitle">A website to navigate resources open-sourced for the Prebiotic Origins of Life Ontology. Use the side navigation panel to explore different sections of the website.</p>
+</div>
+
 <div class="status"><div><span>Ontology Specification Draft</span></div></div>
 
 <div id="toc"></div>
