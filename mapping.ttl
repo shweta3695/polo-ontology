@@ -1,10 +1,10 @@
-@prefix : <https://purl.org/eore/mapping#> .
+@prefix : <https://purl.org/polo/mapping#> .
 @prefix rml: <http://semweb.mmlab.be/ns/rml#> .
 @prefix rr: <http://www.w3.org/ns/r2rml#> .
 @prefix ql: <http://semweb.mmlab.be/ns/ql#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix ex: <https://purl.org/eore#> .
+@prefix ex: <https://purl.org/polo#> .
 
 # =============================================================================
 # LOGICAL SOURCE - shared CSV source for all TriplesMaps
@@ -21,7 +21,7 @@
         rml:referenceFormulation ql:CSV
     ];
     rr:subjectMap [
-        rr:template "https://purl.org/eore/experiment/{id}";
+        rr:template "https://purl.org/polo/experiment/{id}";
         rr:class ex:Experiment
     ];
 
@@ -29,7 +29,7 @@
     rr:predicateObjectMap [
         rr:predicate ex:hasMetadata;
         rr:objectMap [
-            rr:template "https://purl.org/eore/paper/{paper_doi}"
+            rr:template "https://purl.org/polo/paper/{paper_doi}"
         ]
     ];
 
@@ -37,7 +37,7 @@
     rr:predicateObjectMap [
         rr:predicate ex:hasSetup;
         rr:objectMap [
-            rr:template "https://purl.org/eore/setup/{id}"
+            rr:template "https://purl.org/polo/setup/{id}"
         ]
     ].
 
@@ -52,7 +52,7 @@
         rml:referenceFormulation ql:CSV
     ];
     rr:subjectMap [
-        rr:template "https://purl.org/eore/paper/{paper_doi}";
+        rr:template "https://purl.org/polo/paper/{paper_doi}";
         rr:class ex:PaperMetadata
     ];
 
@@ -107,7 +107,7 @@
         rml:referenceFormulation ql:CSV
     ];
     rr:subjectMap [
-        rr:template "https://purl.org/eore/setup/{id}";
+        rr:template "https://purl.org/polo/setup/{id}";
         rr:class ex:ExperimentSetup
     ];
 
@@ -147,7 +147,7 @@
     rr:predicateObjectMap [
         rr:predicate ex:hasExperimentType;
         rr:objectMap [
-            rr:template "https://purl.org/eore/experimenttype/{id}"
+            rr:template "https://purl.org/polo/experimenttype/{id}"
         ]
     ].
 
@@ -163,7 +163,7 @@
         rml:referenceFormulation ql:CSV
     ];
     rr:subjectMap [
-        rr:template "https://purl.org/eore/experimenttype/{id}";
+        rr:template "https://purl.org/polo/experimenttype/{id}";
         rr:class ex:Batch
     ];
 
@@ -171,23 +171,23 @@
     rr:predicateObjectMap [
         rr:predicate ex:hasConditions;
         rr:objectMap [
-            rr:template "https://purl.org/eore/loadingconditions/{id}"
+            rr:template "https://purl.org/polo/loadingconditions/{id}"
         ]
     ];
 
     # Link to InitialState
     rr:predicateObjectMap [
-        rr:predicate ex:hasPhase;
+        rr:predicate ex:hasState;
         rr:objectMap [
-            rr:template "https://purl.org/eore/initialstate/{id}"
+            rr:template "https://purl.org/polo/initialstate/{id}"
         ]
     ];
 
     # Link to FinalState
     rr:predicateObjectMap [
-        rr:predicate ex:hasPhase;
+        rr:predicate ex:hasState;
         rr:objectMap [
-            rr:template "https://purl.org/eore/finalstate/{id}"
+            rr:template "https://purl.org/polo/finalstate/{id}"
         ]
     ].
 
@@ -202,7 +202,7 @@
         rml:referenceFormulation ql:CSV
     ];
     rr:subjectMap [
-        rr:template "https://purl.org/eore/loadingconditions/{id}";
+        rr:template "https://purl.org/polo/loadingconditions/{id}";
         rr:class ex:LoadingConditions
     ];
 
@@ -249,7 +249,7 @@
         rml:referenceFormulation ql:CSV
     ];
     rr:subjectMap [
-        rr:template "https://purl.org/eore/initialstate/{id}";
+        rr:template "https://purl.org/polo/initialstate/{id}";
         rr:class ex:InitialState
     ];
 
@@ -257,7 +257,7 @@
     rr:predicateObjectMap [
         rr:predicate ex:hasConditions;
         rr:objectMap [
-            rr:template "https://purl.org/eore/initialconditions/{id}"
+            rr:template "https://purl.org/polo/initialconditions/{id}"
         ]
     ];
 
@@ -265,7 +265,7 @@
     rr:predicateObjectMap [
         rr:predicate ex:hasPhase;
         rr:objectMap [
-            rr:template "https://purl.org/eore/initialgasphase/{id}"
+            rr:template "https://purl.org/polo/initialgasphase/{id}"
         ]
     ];
 
@@ -273,7 +273,7 @@
     rr:predicateObjectMap [
         rr:predicate ex:hasPhase;
         rr:objectMap [
-            rr:template "https://purl.org/eore/initialliquidphase/{id}"
+            rr:template "https://purl.org/polo/initialliquidphase/{id}"
         ]
     ];
 
@@ -281,7 +281,7 @@
     rr:predicateObjectMap [
         rr:predicate ex:hasPhase;
         rr:objectMap [
-            rr:template "https://purl.org/eore/initialsolidphase/{id}"
+            rr:template "https://purl.org/polo/initialsolidphase/{id}"
         ]
     ].
 
@@ -296,7 +296,7 @@
         rml:referenceFormulation ql:CSV
     ];
     rr:subjectMap [
-        rr:template "https://purl.org/eore/initialconditions/{id}";
+        rr:template "https://purl.org/polo/initialconditions/{id}";
         rr:class ex:InitialSystemConditions
     ];
 
@@ -367,7 +367,7 @@
         rml:referenceFormulation ql:CSV
     ];
     rr:subjectMap [
-        rr:template "https://purl.org/eore/initialgasphase/{id}";
+        rr:template "https://purl.org/polo/initialgasphase/{id}";
         rr:class ex:GasPhase
     ];
 
@@ -406,7 +406,7 @@
         rml:referenceFormulation ql:CSV
     ];
     rr:subjectMap [
-        rr:template "https://purl.org/eore/initialliquidphase/{id}";
+        rr:template "https://purl.org/polo/initialliquidphase/{id}";
         rr:class ex:LiquidPhase
     ];
 
@@ -477,7 +477,7 @@
         rml:referenceFormulation ql:CSV
     ];
     rr:subjectMap [
-        rr:template "https://purl.org/eore/initialsolidphase/{id}";
+        rr:template "https://purl.org/polo/initialsolidphase/{id}";
         rr:class ex:SolidPhase
     ];
 
@@ -516,7 +516,7 @@
         rml:referenceFormulation ql:CSV
     ];
     rr:subjectMap [
-        rr:template "https://purl.org/eore/finalstate/{id}";
+        rr:template "https://purl.org/polo/finalstate/{id}";
         rr:class ex:FinalState
     ];
 
@@ -524,7 +524,7 @@
     rr:predicateObjectMap [
         rr:predicate ex:hasConditions;
         rr:objectMap [
-            rr:template "https://purl.org/eore/finalconditions/{id}"
+            rr:template "https://purl.org/polo/finalconditions/{id}"
         ]
     ];
 
@@ -532,7 +532,7 @@
     rr:predicateObjectMap [
         rr:predicate ex:hasPhase;
         rr:objectMap [
-            rr:template "https://purl.org/eore/finalgasphase/{id}"
+            rr:template "https://purl.org/polo/finalgasphase/{id}"
         ]
     ];
 
@@ -540,7 +540,7 @@
     rr:predicateObjectMap [
         rr:predicate ex:hasPhase;
         rr:objectMap [
-            rr:template "https://purl.org/eore/finalliquidphase/{id}"
+            rr:template "https://purl.org/polo/finalliquidphase/{id}"
         ]
     ];
 
@@ -548,7 +548,7 @@
     rr:predicateObjectMap [
         rr:predicate ex:hasPhase;
         rr:objectMap [
-            rr:template "https://purl.org/eore/finalsolidphase/{id}"
+            rr:template "https://purl.org/polo/finalsolidphase/{id}"
         ]
     ].
 
@@ -563,7 +563,7 @@
         rml:referenceFormulation ql:CSV
     ];
     rr:subjectMap [
-        rr:template "https://purl.org/eore/finalconditions/{id}";
+        rr:template "https://purl.org/polo/finalconditions/{id}";
         rr:class ex:FinalSystemConditions
     ];
 
@@ -610,7 +610,7 @@
         rml:referenceFormulation ql:CSV
     ];
     rr:subjectMap [
-        rr:template "https://purl.org/eore/finalgasphase/{id}";
+        rr:template "https://purl.org/polo/finalgasphase/{id}";
         rr:class ex:GasPhase
     ];
 
@@ -657,7 +657,7 @@
         rml:referenceFormulation ql:CSV
     ];
     rr:subjectMap [
-        rr:template "https://purl.org/eore/finalliquidphase/{id}";
+        rr:template "https://purl.org/polo/finalliquidphase/{id}";
         rr:class ex:LiquidPhase
     ];
 
@@ -904,7 +904,7 @@
         rml:referenceFormulation ql:CSV
     ];
     rr:subjectMap [
-        rr:template "https://purl.org/eore/finalsolidphase/{id}";
+        rr:template "https://purl.org/polo/finalsolidphase/{id}";
         rr:class ex:SolidPhase
     ];
 
