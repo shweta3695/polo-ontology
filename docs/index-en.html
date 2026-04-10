@@ -31,6 +31,9 @@ $(function(){
   // Build TOC from all .list headings
   loadTOC();
 
+  // Visualize link at bottom of TOC list
+  $("#sidebar-toc > ul").append('<li><a href="https://service.tib.eu/webvowl/#iri=https://shweta3695.github.io/polo-ontology/ontology.ttl" target="_blank">Visualize Ontology ↗</a></li>');
+
 });
 
 $.fn.ignore = function(sel){
