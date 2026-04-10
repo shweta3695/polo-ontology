@@ -7,7 +7,6 @@
 @base <https://purl.org/polo#> .
 
 <https://purl.org/polo> rdf:type owl:Ontology ;
-                         owl:imports <http://purl.obolibrary.org/obo/uo/releases/2023-05-25/uo.owl> ;
                          <http://purl.org/dc/elements/1.1/creator> "Shweta U. Narkar" ;
                          <http://purl.org/dc/elements/1.1/description> "POLO provides a structured vocabulary for annotating and querying experimental prebiotic chemistry data, covering batch and continuous flowthrough experiment types." ;
                          rdfs:comment "Ontology for experimental prebiotic chemistry. Developed as part of the EORE (Executable Online Resource of Experimental Data) project at Rensselaer Polytechnic Institute." ;

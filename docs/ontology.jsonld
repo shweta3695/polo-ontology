@@ -226,9 +226,6 @@
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "Prebiotic Origins of Life Ontology (POLO)"
   } ],
-  "http://www.w3.org/2002/07/owl#imports" : [ {
-    "@id" : "http://purl.obolibrary.org/obo/uo/releases/2023-05-25/uo.owl"
-  } ]
 }, {
   "@id" : "https://purl.org/polo#Analysis",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
