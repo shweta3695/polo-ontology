@@ -6,15 +6,13 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:dc="http://purl.org/dc/elements/1.1/"
-     xmlns:uo="http://purl.obolibrary.org/obo/uo.owl#">
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
 
     <owl:Ontology rdf:about="https://purl.org/polo">
         <rdfs:label>Prebiotic Origins of Life Ontology (POLO)</rdfs:label>
         <rdfs:comment>Ontology for experimental prebiotic chemistry. Developed as part of the EORE (Executable Online Resource of Experimental Data) project at Rensselaer Polytechnic Institute.</rdfs:comment>
         <dc:creator>Shweta U. Narkar</dc:creator>
         <dc:description>POLO provides a structured vocabulary for annotating and querying experimental prebiotic chemistry data, covering batch and continuous flowthrough experiment types.</dc:description>
-        <owl:imports rdf:resource="http://purl.obolibrary.org/obo/uo/releases/2023-05-25/uo.owl"/>
     </owl:Ontology>
 
 
