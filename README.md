@@ -70,3 +70,15 @@ POLO imports the [Units Ontology (UO)](http://purl.obolibrary.org/obo/uo.owl) fo
 - **Flat CSV, structured RDF**: The CSV is intentionally flat (one wide row per experiment); the mapping file handles decomposition into the nested class hierarchy.
 - **Multi-valued properties via numbered columns**: Multiple solutes, gases, and monomers are encoded as numbered column suffixes (`_1`, `_2`, … `_5`). Each maps to the same RDF predicate (e.g. `polo:soluteName`) on the same subject URI, producing multiple triples.
 - **Batch-only mapping currently active**: The current `mapping.ttl` maps only `experiment_type = batch` rows. Flowthrough experiment columns exist in the CSV but do not yet have corresponding TriplesMap entries.
+
+## Data
+
+The experimental dataset is not included in this repository. For data access, please contact the authors.
+
+Experimental data was sourced from the following works:
+
+Riggi, V. S. (2019). *Constraining Prebiotic RNA Oligomerization in the Context of Hadean-Archaean Environments* (Doctoral dissertation, Rensselaer Polytechnic Institute).
+
+Riggi, V. S., Watson, E. B., Steele, A., & Rogers, K. L. (2023). Mineral-mediated oligoribonucleotide condensation: Broadening the scope of prebiotic possibilities on the early Earth. *Life, 13*(9), 1899.
+
+Data structuring and knowledge graph generation were performed by Shweta U. Narkar (2025).
