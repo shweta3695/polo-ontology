@@ -110,6 +110,18 @@ a:hover {
 .sidebar-meta-value a:hover { color: #ffffff; font-weight: 700; }
 .sidebar-meta-value a::after { background: #cccccc; }
 
+.sidebar-meta-cite {
+  display: block;
+  color: #cccccc;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid #1e1e1e;
+}
+
+.sidebar-meta-cite:last-child { border-bottom: none; }
+.sidebar-meta-cite em { font-style: italic; color: #aaaaaa; }
+
 .sidebar-meta-badges {
   display: flex;
   flex-wrap: wrap;
