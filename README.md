@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-**POLO** (Prebiotic Origins of Life Ontology) / **EORE** (Executable Online Resource of Experimental Data) is an ontology and RML-based data pipeline for representing and querying experimental prebiotic chemistry data extracted from scientific papers. Developed at Rensselaer Polytechnic Institute.
+**POLO** (Prebiotic Origins of Life Ontology) is an ontology and RML-based data pipeline for representing and querying experimental prebiotic chemistry data extracted from scientific papers. Developed at Rensselaer Polytechnic Institute.
 
 Base IRI: `https://purl.org/polo`
 
@@ -55,7 +55,7 @@ InitialState / FinalState
 └── hasPhase → SolidPhase              (solidName, solidMass, solidType, solidIsMeasured, maxGrainSize, minGrainSize)
 ```
 
-POLO imports the [Units Ontology (UO)](http://purl.obolibrary.org/obo/uo.owl) for measurement units. Implicit units: pressure in bars, temperature in °C, volume in mL, solidMass in mg, soluteConcentration in mM/L, solidMass in mg, grain size in µm.
+[Update in progress] POLO imports the [Units Ontology (UO)](http://purl.obolibrary.org/obo/uo.owl) for measurement units. Implicit units: pressure in bars, temperature in °C, volume in mL, solidMass in mg, soluteConcentration in mM/L, solidMass in mg, grain size in µm.
 
 ## RML Mapping Conventions
 
