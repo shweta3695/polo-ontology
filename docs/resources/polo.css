@@ -2,7 +2,7 @@
 
 :root {
   --topnav-height: 50px;
-  --sidebar-width: 260px;
+  --sidebar-width: 300px;
 }
 
 /* ── Base ── */
@@ -300,10 +300,16 @@ a:hover {
 #main-content {
   margin-left: var(--sidebar-width);
   margin-top: var(--topnav-height);
-  padding: 2rem 3rem 4rem 3rem;
+  padding: 2rem 0 4rem 0;
   min-height: calc(100vh - var(--topnav-height));
   background: #ffffff;
   color: #000000;
+}
+
+#main-content > .container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 3rem;
 }
 
 /* ── WebVOWL iframe ── */
