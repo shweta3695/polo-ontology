@@ -1,12 +1,10 @@
-# CLAUDE.md
-
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+# POLO Ontology
 
 ## Project Overview
 
 **POLO** (Prebiotic Origins of Life Ontology) / **EORE** (Executable Online Resource of Experimental Data) is an ontology and RML-based data pipeline for representing and querying experimental prebiotic chemistry data extracted from scientific papers. Developed at Rensselaer Polytechnic Institute.
 
-Base IRI: `https://purl.org/eore`
+Base IRI: `https://purl.org/polo`
 
 ## File Roles
 
@@ -45,8 +43,8 @@ Experiment
                                         ├── Batch
                                         │   ├── hasConditions → LoadingConditions
                                         │   │                   (pressure, volume, isRoomTemperature, containerMaterial)
-                                        │   ├── hasPhase → InitialState
-                                        │   └── hasPhase → FinalState
+                                        │   ├── hasState → InitialState
+                                        │   └── hasState → FinalState
                                         └── Flowthrough (separate column set)
 
 InitialState / FinalState
@@ -61,8 +59,8 @@ POLO imports the [Units Ontology (UO)](http://purl.obolibrary.org/obo/uo.owl) fo
 
 ## RML Mapping Conventions
 
-- Mapping namespace prefix: `:` → `https://purl.org/eore/mapping#`
-- Data/ontology namespace: `ex:` → `https://purl.org/eore#`
+- Mapping namespace prefix: `:` → `https://purl.org/polo/mapping#`
+- Data/ontology namespace: `ex:` → `https://purl.org/polo#`
 - All 15 TriplesMap objects share the same logical source (`experiments.csv`, `ql:CSV`)
 - URI templates use the `{id}` column as the row key for all experiment-scoped entities
 - Missing/unknown values in the CSV are represented as `--`; boolean flags (e.g. `unknown_replicates_count`, `polymer_length_unknown_final_*`) are used to indicate when a numeric value is absent
