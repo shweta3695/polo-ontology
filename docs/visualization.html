@@ -6,51 +6,66 @@
 <link rel="icon" type="image/png" href="resources/rdf.icon"/>
 <title>POLO — Ontology Visualization</title>
 <style>
-  html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; }
-  #vis-topnav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    height: 50px;
-    background: #000000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 1.5rem;
-    z-index: 200;
-    font-family: 'Inter', sans-serif;
-    box-sizing: border-box;
-  }
-  #vis-topnav a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-  }
-  #vis-topnav a:hover { opacity: 0.8; }
-  #vis-topnav span {
-    color: #aaaaaa;
-    font-size: 0.78rem;
-    font-weight: 400;
-  }
-  #vis-frame {
-    position: fixed;
-    top: 50px; left: 0; right: 0; bottom: 0;
+  #webvowl-iframe {
     width: 100%;
-    height: calc(100vh - 50px);
-    border: none;
+    height: calc(100vh - var(--topnav-height) - 4rem);
+    min-height: 600px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
     display: block;
   }
 </style>
 </head>
 <body>
-<div id="vis-topnav">
-  <a href="index-en.html">← Prebiotic Origins of Life Ontology (POLO)</a>
-  <span>Ontology Visualization — WebVOWL</span>
+
+<nav id="topnav">
+  <div id="topnav-left">
+    <a href="index-en.html" id="topnav-title">Prebiotic Origins of Life Ontology (POLO)</a>
+  </div>
+  <div id="topnav-right">
+    <a href="index-en.html">Home</a>
+    <a href="visualization.html">Visualize</a>
+    <a href="https://github.com/shweta3695/polo-ontology" target="_blank">GitHub Project</a>
+  </div>
+</nav>
+
+<div id="sidebar">
+  <div id="sidebar-toc">
+    <h2>Navigation</h2>
+    <ul>
+      <li><a href="index-en.html#abstract-heading">Abstract</a></li>
+      <li><a href="index-en.html#intro">Introduction</a></li>
+      <li><a href="index-en.html#overv">Overview</a></li>
+      <li><a href="index-en.html#desc">Description</a></li>
+      <li><a href="index-en.html#crossreference">Cross-Reference</a></li>
+      <li><a href="index-en.html#ref">References</a></li>
+      <li><a href="index-en.html#ack">Acknowledgments</a></li>
+    </ul>
+  </div>
+  <div id="sidebar-meta">
+    <div class="sidebar-meta-row"><span class="sidebar-meta-label">Author</span><span class="sidebar-meta-value">Shweta U. Narkar</span></div>
+    <div class="sidebar-meta-row"><span class="sidebar-meta-label">License</span><span class="sidebar-meta-value"><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+    <div class="sidebar-meta-row"><span class="sidebar-meta-label">Download</span><span class="sidebar-meta-value sidebar-meta-badges">
+      <a href="ontology.jsonld" target="_blank">JSON-LD</a>
+      <a href="ontology.owl" target="_blank">RDF/XML</a>
+      <a href="ontology.nt" target="_blank">N-Triples</a>
+      <a href="ontology.ttl" target="_blank">TTL</a>
+    </span></div>
+  </div>
 </div>
-<iframe id="vis-frame"
-  src="https://service.tib.eu/webvowl/#iri=https://shweta3695.github.io/polo-ontology/ontology.ttl"
-  allowfullscreen>
-</iframe>
+
+<div id="main-content">
+<div class="container">
+  <div id="page-title">
+    <h1>Ontology Visualization</h1>
+    <p id="page-subtitle">Interactive graph of POLO classes and properties powered by WebVOWL. Use the controls inside the graph to zoom, filter, and explore.</p>
+  </div>
+  <iframe id="webvowl-iframe"
+    src="https://service.tib.eu/webvowl/#iri=https://shweta3695.github.io/polo-ontology/ontology.ttl"
+    allowfullscreen>
+  </iframe>
+</div>
+</div>
+
 </body>
 </html>
