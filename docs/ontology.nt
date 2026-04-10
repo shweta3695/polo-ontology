@@ -1,0 +1,553 @@
+<https://purl.org/polo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://purl.org/polo> <http://www.w3.org/2002/07/owl#imports> <http://purl.obolibrary.org/obo/uo/releases/2023-05-25/uo.owl> .
+<https://purl.org/polo> <http://purl.org/dc/elements/1.1/creator> "Shweta U. Narkar" .
+<https://purl.org/polo> <http://purl.org/dc/elements/1.1/description> "POLO provides a structured vocabulary for annotating and querying experimental prebiotic chemistry data, covering batch and continuous flowthrough experiment types." .
+<https://purl.org/polo> <http://www.w3.org/2000/01/rdf-schema#comment> "Ontology for experimental prebiotic chemistry. Developed as part of the EORE (Executable Online Resource of Experimental Data) project at Rensselaer Polytechnic Institute." .
+<https://purl.org/polo> <http://www.w3.org/2000/01/rdf-schema#label> "Prebiotic Origins of Life Ontology (POLO)" .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/elements/1.1/description
+<http://purl.org/dc/elements/1.1/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# https://purl.org/polo#hasConditions
+<https://purl.org/polo#hasConditions> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/polo#hasConditions> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an experiment state to its system conditions." .
+<https://purl.org/polo#hasConditions> <http://www.w3.org/2000/01/rdf-schema#label> "hasConditions" .
+# 
+# https://purl.org/polo#hasExperimentType
+<https://purl.org/polo#hasExperimentType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/polo#hasExperimentType> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#ExperimentSetup> .
+<https://purl.org/polo#hasExperimentType> <http://www.w3.org/2000/01/rdf-schema#range> <https://purl.org/polo#ExperimentType> .
+<https://purl.org/polo#hasExperimentType> <http://www.w3.org/2000/01/rdf-schema#label> "hasExperimentType" .
+# 
+# https://purl.org/polo#hasMeasurement
+<https://purl.org/polo#hasMeasurement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/polo#hasMeasurement> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a phase or condition to its method of measurement." .
+<https://purl.org/polo#hasMeasurement> <http://www.w3.org/2000/01/rdf-schema#label> "hasMeasurement" .
+# 
+# https://purl.org/polo#hasMetadata
+<https://purl.org/polo#hasMetadata> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/polo#hasMetadata> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#Experiment> .
+<https://purl.org/polo#hasMetadata> <http://www.w3.org/2000/01/rdf-schema#range> <https://purl.org/polo#PaperMetadata> .
+<https://purl.org/polo#hasMetadata> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an experiment to its paper metadata provenance." .
+<https://purl.org/polo#hasMetadata> <http://www.w3.org/2000/01/rdf-schema#label> "hasMetadata" .
+# 
+# https://purl.org/polo#hasPhase
+<https://purl.org/polo#hasPhase> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/polo#hasPhase> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an experiment state to one of its phases (gas, liquid, solid)." .
+<https://purl.org/polo#hasPhase> <http://www.w3.org/2000/01/rdf-schema#label> "hasPhase" .
+# 
+# https://purl.org/polo#hasSetup
+<https://purl.org/polo#hasSetup> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/polo#hasSetup> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#Experiment> .
+<https://purl.org/polo#hasSetup> <http://www.w3.org/2000/01/rdf-schema#range> <https://purl.org/polo#ExperimentSetup> .
+<https://purl.org/polo#hasSetup> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an experiment to its experimental setup." .
+<https://purl.org/polo#hasSetup> <http://www.w3.org/2000/01/rdf-schema#label> "hasSetup" .
+# 
+# https://purl.org/polo#hasState
+<https://purl.org/polo#hasState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/polo#hasState> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#Batch> .
+<https://purl.org/polo#hasState> <http://www.w3.org/2000/01/rdf-schema#range> <https://purl.org/polo#ExperimentState> .
+<https://purl.org/polo#hasState> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a batch experiment to its initial or final state." .
+<https://purl.org/polo#hasState> <http://www.w3.org/2000/01/rdf-schema#label> "hasState" .
+# 
+# https://purl.org/polo#hasUnit
+<https://purl.org/polo#hasUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://purl.org/polo#hasUnit> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a measurement to its unit of measurement from the Units Ontology." .
+<https://purl.org/polo#hasUnit> <http://www.w3.org/2000/01/rdf-schema#label> "hasUnit" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# https://purl.org/polo#ambientAtmosphere
+<https://purl.org/polo#ambientAtmosphere> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#ambientAtmosphere> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#GasPhase> .
+<https://purl.org/polo#ambientAtmosphere> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<https://purl.org/polo#ambientAtmosphere> <http://www.w3.org/2000/01/rdf-schema#label> "ambientAtmosphere" .
+# 
+# https://purl.org/polo#containerMaterial
+<https://purl.org/polo#containerMaterial> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#containerMaterial> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#LoadingConditions> .
+<https://purl.org/polo#containerMaterial> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://purl.org/polo#containerMaterial> <http://www.w3.org/2000/01/rdf-schema#label> "containerMaterial" .
+# 
+# https://purl.org/polo#durationHrs
+<https://purl.org/polo#durationHrs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#durationHrs> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#ExperimentSetup> .
+<https://purl.org/polo#durationHrs> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://purl.org/polo#durationHrs> <http://www.w3.org/2000/01/rdf-schema#comment> "Duration of the experiment in hours." .
+<https://purl.org/polo#durationHrs> <http://www.w3.org/2000/01/rdf-schema#label> "durationHrs" .
+# 
+# https://purl.org/polo#formOfAmorphSolid
+<https://purl.org/polo#formOfAmorphSolid> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#formOfAmorphSolid> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#SolidPhase> .
+<https://purl.org/polo#formOfAmorphSolid> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://purl.org/polo#formOfAmorphSolid> <http://www.w3.org/2000/01/rdf-schema#comment> "Form of amorphous solid e.g. chunk or powder." .
+<https://purl.org/polo#formOfAmorphSolid> <http://www.w3.org/2000/01/rdf-schema#label> "formOfAmorphSolid" .
+# 
+# https://purl.org/polo#freqOfMonomer
+<https://purl.org/polo#freqOfMonomer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#freqOfMonomer> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#LiquidPhase> .
+<https://purl.org/polo#freqOfMonomer> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<https://purl.org/polo#freqOfMonomer> <http://www.w3.org/2000/01/rdf-schema#label> "freqOfMonomer" .
+# 
+# https://purl.org/polo#gasConcentration
+<https://purl.org/polo#gasConcentration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#gasConcentration> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#GasPhase> .
+<https://purl.org/polo#gasConcentration> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://purl.org/polo#gasConcentration> <http://www.w3.org/2000/01/rdf-schema#label> "gasConcentration" .
+# 
+# https://purl.org/polo#gasIsMeasured
+<https://purl.org/polo#gasIsMeasured> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#gasIsMeasured> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#GasPhase> .
+<https://purl.org/polo#gasIsMeasured> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<https://purl.org/polo#gasIsMeasured> <http://www.w3.org/2000/01/rdf-schema#label> "gasIsMeasured" .
+# 
+# https://purl.org/polo#gasName
+<https://purl.org/polo#gasName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#gasName> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#GasPhase> .
+<https://purl.org/polo#gasName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://purl.org/polo#gasName> <http://www.w3.org/2000/01/rdf-schema#label> "gasName" .
+# 
+# https://purl.org/polo#isIsobaric
+<https://purl.org/polo#isIsobaric> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#isIsobaric> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<https://purl.org/polo#isIsobaric> <http://www.w3.org/2000/01/rdf-schema#label> "isIsobaric" .
+# 
+# https://purl.org/polo#isIsochoric
+<https://purl.org/polo#isIsochoric> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#isIsochoric> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<https://purl.org/polo#isIsochoric> <http://www.w3.org/2000/01/rdf-schema#label> "isIsochoric" .
+# 
+# https://purl.org/polo#isIsothermal
+<https://purl.org/polo#isIsothermal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#isIsothermal> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<https://purl.org/polo#isIsothermal> <http://www.w3.org/2000/01/rdf-schema#label> "isIsothermal" .
+# 
+# https://purl.org/polo#isPolymer
+<https://purl.org/polo#isPolymer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#isPolymer> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#LiquidPhase> .
+<https://purl.org/polo#isPolymer> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<https://purl.org/polo#isPolymer> <http://www.w3.org/2000/01/rdf-schema#label> "isPolymer" .
+# 
+# https://purl.org/polo#isRoomTemperature
+<https://purl.org/polo#isRoomTemperature> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#isRoomTemperature> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<https://purl.org/polo#isRoomTemperature> <http://www.w3.org/2000/01/rdf-schema#label> "isRoomTemperature" .
+# 
+# https://purl.org/polo#liquidIsMeasured
+<https://purl.org/polo#liquidIsMeasured> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#liquidIsMeasured> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#LiquidPhase> .
+<https://purl.org/polo#liquidIsMeasured> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<https://purl.org/polo#liquidIsMeasured> <http://www.w3.org/2000/01/rdf-schema#label> "liquidIsMeasured" .
+# 
+# https://purl.org/polo#maxGrainSize
+<https://purl.org/polo#maxGrainSize> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#maxGrainSize> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#SolidPhase> .
+<https://purl.org/polo#maxGrainSize> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://purl.org/polo#maxGrainSize> <http://www.w3.org/2000/01/rdf-schema#comment> "Maximum grain size in micrometres." .
+<https://purl.org/polo#maxGrainSize> <http://www.w3.org/2000/01/rdf-schema#label> "maxGrainSize" .
+# 
+# https://purl.org/polo#minGrainSize
+<https://purl.org/polo#minGrainSize> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#minGrainSize> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#SolidPhase> .
+<https://purl.org/polo#minGrainSize> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://purl.org/polo#minGrainSize> <http://www.w3.org/2000/01/rdf-schema#comment> "Minimum grain size in micrometres." .
+<https://purl.org/polo#minGrainSize> <http://www.w3.org/2000/01/rdf-schema#label> "minGrainSize" .
+# 
+# https://purl.org/polo#monomerName
+<https://purl.org/polo#monomerName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#monomerName> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#LiquidPhase> .
+<https://purl.org/polo#monomerName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://purl.org/polo#monomerName> <http://www.w3.org/2000/01/rdf-schema#label> "monomerName" .
+# 
+# https://purl.org/polo#noOfUniqueMonomers
+<https://purl.org/polo#noOfUniqueMonomers> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#noOfUniqueMonomers> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#LiquidPhase> .
+<https://purl.org/polo#noOfUniqueMonomers> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<https://purl.org/polo#noOfUniqueMonomers> <http://www.w3.org/2000/01/rdf-schema#label> "noOfUniqueMonomers" .
+# 
+# https://purl.org/polo#paperAuthor
+<https://purl.org/polo#paperAuthor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#paperAuthor> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#PaperMetadata> .
+<https://purl.org/polo#paperAuthor> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://purl.org/polo#paperAuthor> <http://www.w3.org/2000/01/rdf-schema#label> "paperAuthor" .
+# 
+# https://purl.org/polo#paperDoi
+<https://purl.org/polo#paperDoi> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#paperDoi> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#PaperMetadata> .
+<https://purl.org/polo#paperDoi> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://purl.org/polo#paperDoi> <http://www.w3.org/2000/01/rdf-schema#label> "paperDoi" .
+# 
+# https://purl.org/polo#paperJournal
+<https://purl.org/polo#paperJournal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#paperJournal> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#PaperMetadata> .
+<https://purl.org/polo#paperJournal> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://purl.org/polo#paperJournal> <http://www.w3.org/2000/01/rdf-schema#label> "paperJournal" .
+# 
+# https://purl.org/polo#paperTitle
+<https://purl.org/polo#paperTitle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#paperTitle> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#PaperMetadata> .
+<https://purl.org/polo#paperTitle> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://purl.org/polo#paperTitle> <http://www.w3.org/2000/01/rdf-schema#label> "paperTitle" .
+# 
+# https://purl.org/polo#paperYear
+<https://purl.org/polo#paperYear> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#paperYear> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#PaperMetadata> .
+<https://purl.org/polo#paperYear> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<https://purl.org/polo#paperYear> <http://www.w3.org/2000/01/rdf-schema#label> "paperYear" .
+# 
+# https://purl.org/polo#particleSizeUnknown
+<https://purl.org/polo#particleSizeUnknown> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#particleSizeUnknown> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#SolidPhase> .
+<https://purl.org/polo#particleSizeUnknown> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<https://purl.org/polo#particleSizeUnknown> <http://www.w3.org/2000/01/rdf-schema#label> "particleSizeUnknown" .
+# 
+# https://purl.org/polo#polymerLength
+<https://purl.org/polo#polymerLength> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#polymerLength> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#LiquidPhase> .
+<https://purl.org/polo#polymerLength> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://purl.org/polo#polymerLength> <http://www.w3.org/2000/01/rdf-schema#comment> "Maximum or average polymer length observed." .
+<https://purl.org/polo#polymerLength> <http://www.w3.org/2000/01/rdf-schema#label> "polymerLength" .
+# 
+# https://purl.org/polo#polymerLengthUnknown
+<https://purl.org/polo#polymerLengthUnknown> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#polymerLengthUnknown> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#LiquidPhase> .
+<https://purl.org/polo#polymerLengthUnknown> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<https://purl.org/polo#polymerLengthUnknown> <http://www.w3.org/2000/01/rdf-schema#label> "polymerLengthUnknown" .
+# 
+# https://purl.org/polo#pressure
+<https://purl.org/polo#pressure> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#pressure> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://purl.org/polo#pressure> <http://www.w3.org/2000/01/rdf-schema#comment> "System pressure in bars." .
+<https://purl.org/polo#pressure> <http://www.w3.org/2000/01/rdf-schema#label> "pressure" .
+# 
+# https://purl.org/polo#replicatesCount
+<https://purl.org/polo#replicatesCount> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#replicatesCount> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#ExperimentSetup> .
+<https://purl.org/polo#replicatesCount> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<https://purl.org/polo#replicatesCount> <http://www.w3.org/2000/01/rdf-schema#label> "replicatesCount" .
+# 
+# https://purl.org/polo#solidIsMeasured
+<https://purl.org/polo#solidIsMeasured> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#solidIsMeasured> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#SolidPhase> .
+<https://purl.org/polo#solidIsMeasured> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<https://purl.org/polo#solidIsMeasured> <http://www.w3.org/2000/01/rdf-schema#label> "solidIsMeasured" .
+# 
+# https://purl.org/polo#solidMass
+<https://purl.org/polo#solidMass> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#solidMass> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#SolidPhase> .
+<https://purl.org/polo#solidMass> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://purl.org/polo#solidMass> <http://www.w3.org/2000/01/rdf-schema#comment> "Solid mass in milligrams." .
+<https://purl.org/polo#solidMass> <http://www.w3.org/2000/01/rdf-schema#label> "solidMass" .
+# 
+# https://purl.org/polo#solidName
+<https://purl.org/polo#solidName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#solidName> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#SolidPhase> .
+<https://purl.org/polo#solidName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://purl.org/polo#solidName> <http://www.w3.org/2000/01/rdf-schema#label> "solidName" .
+# 
+# https://purl.org/polo#solidType
+<https://purl.org/polo#solidType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#solidType> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#SolidPhase> .
+<https://purl.org/polo#solidType> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://purl.org/polo#solidType> <http://www.w3.org/2000/01/rdf-schema#comment> "Type of solid e.g. mineral, amorphous, rock, other." .
+<https://purl.org/polo#solidType> <http://www.w3.org/2000/01/rdf-schema#label> "solidType" .
+# 
+# https://purl.org/polo#soluteConcentration
+<https://purl.org/polo#soluteConcentration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#soluteConcentration> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#LiquidPhase> .
+<https://purl.org/polo#soluteConcentration> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://purl.org/polo#soluteConcentration> <http://www.w3.org/2000/01/rdf-schema#comment> "Solute concentration in mM/L." .
+<https://purl.org/polo#soluteConcentration> <http://www.w3.org/2000/01/rdf-schema#label> "soluteConcentration" .
+# 
+# https://purl.org/polo#soluteConcentrationUnknown
+<https://purl.org/polo#soluteConcentrationUnknown> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#soluteConcentrationUnknown> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#LiquidPhase> .
+<https://purl.org/polo#soluteConcentrationUnknown> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<https://purl.org/polo#soluteConcentrationUnknown> <http://www.w3.org/2000/01/rdf-schema#label> "soluteConcentrationUnknown" .
+# 
+# https://purl.org/polo#soluteName
+<https://purl.org/polo#soluteName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#soluteName> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#LiquidPhase> .
+<https://purl.org/polo#soluteName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://purl.org/polo#soluteName> <http://www.w3.org/2000/01/rdf-schema#label> "soluteName" .
+# 
+# https://purl.org/polo#solventName
+<https://purl.org/polo#solventName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#solventName> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#LiquidPhase> .
+<https://purl.org/polo#solventName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://purl.org/polo#solventName> <http://www.w3.org/2000/01/rdf-schema#label> "solventName" .
+# 
+# https://purl.org/polo#solventType
+<https://purl.org/polo#solventType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#solventType> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#LiquidPhase> .
+<https://purl.org/polo#solventType> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://purl.org/polo#solventType> <http://www.w3.org/2000/01/rdf-schema#comment> "Type of solvent e.g. organic or inorganic." .
+<https://purl.org/polo#solventType> <http://www.w3.org/2000/01/rdf-schema#label> "solventType" .
+# 
+# https://purl.org/polo#systemType
+<https://purl.org/polo#systemType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#systemType> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#ExperimentSetup> .
+<https://purl.org/polo#systemType> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://purl.org/polo#systemType> <http://www.w3.org/2000/01/rdf-schema#label> "systemType" .
+# 
+# https://purl.org/polo#temperature
+<https://purl.org/polo#temperature> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#temperature> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://purl.org/polo#temperature> <http://www.w3.org/2000/01/rdf-schema#comment> "System temperature in Celsius." .
+<https://purl.org/polo#temperature> <http://www.w3.org/2000/01/rdf-schema#label> "temperature" .
+# 
+# https://purl.org/polo#unknownReplicatesCount
+<https://purl.org/polo#unknownReplicatesCount> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#unknownReplicatesCount> <http://www.w3.org/2000/01/rdf-schema#domain> <https://purl.org/polo#ExperimentSetup> .
+<https://purl.org/polo#unknownReplicatesCount> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<https://purl.org/polo#unknownReplicatesCount> <http://www.w3.org/2000/01/rdf-schema#label> "unknownReplicatesCount" .
+# 
+# https://purl.org/polo#volume
+<https://purl.org/polo#volume> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://purl.org/polo#volume> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://purl.org/polo#volume> <http://www.w3.org/2000/01/rdf-schema#comment> "System volume in millilitres." .
+<https://purl.org/polo#volume> <http://www.w3.org/2000/01/rdf-schema#label> "volume" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# https://purl.org/polo#Analysis
+<https://purl.org/polo#Analysis> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/polo#Analysis> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://purl.org/polo#Flowthrough> .
+<https://purl.org/polo#Analysis> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid1 .
+_:genid1 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://purl.org/polo#GasPhase> .
+_:genid1 <http://www.w3.org/2002/07/owl#onProperty> <https://purl.org/polo#hasPhase> .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://purl.org/polo#Analysis> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid2 .
+_:genid2 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://purl.org/polo#LiquidPhase> .
+_:genid2 <http://www.w3.org/2002/07/owl#onProperty> <https://purl.org/polo#hasPhase> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://purl.org/polo#Analysis> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid3 .
+_:genid3 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://purl.org/polo#SolidPhase> .
+_:genid3 <http://www.w3.org/2002/07/owl#onProperty> <https://purl.org/polo#hasPhase> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://purl.org/polo#Analysis> <http://www.w3.org/2000/01/rdf-schema#comment> "The analysis component of a flowthrough experiment." .
+<https://purl.org/polo#Analysis> <http://www.w3.org/2000/01/rdf-schema#label> "Analysis" .
+# 
+# https://purl.org/polo#Batch
+<https://purl.org/polo#Batch> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/polo#Batch> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://purl.org/polo#ExperimentType> .
+<https://purl.org/polo#Batch> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid4 .
+_:genid4 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://purl.org/polo#LoadingConditions> .
+_:genid4 <http://www.w3.org/2002/07/owl#onProperty> <https://purl.org/polo#hasConditions> .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://purl.org/polo#Batch> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid5 .
+_:genid5 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://purl.org/polo#FinalState> .
+_:genid5 <http://www.w3.org/2002/07/owl#onProperty> <https://purl.org/polo#hasState> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://purl.org/polo#Batch> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid6 .
+_:genid6 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://purl.org/polo#InitialState> .
+_:genid6 <http://www.w3.org/2002/07/owl#onProperty> <https://purl.org/polo#hasState> .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://purl.org/polo#Batch> <http://www.w3.org/2000/01/rdf-schema#comment> "A batch experiment where a measured amount of chemical compositions interact over a fixed duration with no additions during the process." .
+<https://purl.org/polo#Batch> <http://www.w3.org/2000/01/rdf-schema#label> "Batch" .
+# 
+# https://purl.org/polo#Conditions
+<https://purl.org/polo#Conditions> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/polo#Conditions> <http://www.w3.org/2000/01/rdf-schema#comment> "System conditions for an experiment at a given state." .
+<https://purl.org/polo#Conditions> <http://www.w3.org/2000/01/rdf-schema#label> "Conditions" .
+# 
+# https://purl.org/polo#Continuous
+<https://purl.org/polo#Continuous> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/polo#Continuous> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://purl.org/polo#Flowthrough> .
+<https://purl.org/polo#Continuous> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid7 .
+_:genid7 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://purl.org/polo#GasPhase> .
+_:genid7 <http://www.w3.org/2002/07/owl#onProperty> <https://purl.org/polo#hasPhase> .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://purl.org/polo#Continuous> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid8 .
+_:genid8 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://purl.org/polo#LiquidPhase> .
+_:genid8 <http://www.w3.org/2002/07/owl#onProperty> <https://purl.org/polo#hasPhase> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://purl.org/polo#Continuous> <http://www.w3.org/2000/01/rdf-schema#comment> "The continuous component of a flowthrough experiment where fluid passes through the stationary stage." .
+<https://purl.org/polo#Continuous> <http://www.w3.org/2000/01/rdf-schema#label> "Continuous" .
+# 
+# https://purl.org/polo#Experiment
+<https://purl.org/polo#Experiment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/polo#Experiment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid9 .
+_:genid9 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://purl.org/polo#PaperMetadata> .
+_:genid9 <http://www.w3.org/2002/07/owl#onProperty> <https://purl.org/polo#hasMetadata> .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://purl.org/polo#Experiment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid10 .
+_:genid10 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://purl.org/polo#ExperimentSetup> .
+_:genid10 <http://www.w3.org/2002/07/owl#onProperty> <https://purl.org/polo#hasSetup> .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://purl.org/polo#Experiment> <http://www.w3.org/2000/01/rdf-schema#comment> "The top-level class representing a prebiotic chemistry experiment reported in a scientific paper." .
+<https://purl.org/polo#Experiment> <http://www.w3.org/2000/01/rdf-schema#label> "Experiment" .
+# 
+# https://purl.org/polo#ExperimentSetup
+<https://purl.org/polo#ExperimentSetup> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/polo#ExperimentSetup> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the experimental setup parameters for a given experiment." .
+<https://purl.org/polo#ExperimentSetup> <http://www.w3.org/2000/01/rdf-schema#label> "ExperimentSetup" .
+# 
+# https://purl.org/polo#ExperimentState
+<https://purl.org/polo#ExperimentState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/polo#ExperimentState> <http://www.w3.org/2000/01/rdf-schema#comment> "A state of a batch experiment, either initial or final." .
+<https://purl.org/polo#ExperimentState> <http://www.w3.org/2000/01/rdf-schema#label> "ExperimentState" .
+# 
+# https://purl.org/polo#ExperimentType
+<https://purl.org/polo#ExperimentType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/polo#ExperimentType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://purl.org/polo#ExperimentSetup> .
+<https://purl.org/polo#ExperimentType> <http://www.w3.org/2000/01/rdf-schema#comment> "The type of prebiotic chemistry experiment." .
+<https://purl.org/polo#ExperimentType> <http://www.w3.org/2000/01/rdf-schema#label> "ExperimentType" .
+# 
+# https://purl.org/polo#FinalState
+<https://purl.org/polo#FinalState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/polo#FinalState> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://purl.org/polo#ExperimentState> .
+<https://purl.org/polo#FinalState> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid11 .
+_:genid11 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://purl.org/polo#FinalSystemConditions> .
+_:genid11 <http://www.w3.org/2002/07/owl#onProperty> <https://purl.org/polo#hasConditions> .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://purl.org/polo#FinalState> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid12 .
+_:genid12 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://purl.org/polo#GasPhase> .
+_:genid12 <http://www.w3.org/2002/07/owl#onProperty> <https://purl.org/polo#hasPhase> .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://purl.org/polo#FinalState> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid13 .
+_:genid13 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://purl.org/polo#LiquidPhase> .
+_:genid13 <http://www.w3.org/2002/07/owl#onProperty> <https://purl.org/polo#hasPhase> .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://purl.org/polo#FinalState> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid14 .
+_:genid14 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://purl.org/polo#SolidPhase> .
+_:genid14 <http://www.w3.org/2002/07/owl#onProperty> <https://purl.org/polo#hasPhase> .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://purl.org/polo#FinalState> <http://www.w3.org/2000/01/rdf-schema#comment> "The final state of a batch experiment after conditions have been applied." .
+<https://purl.org/polo#FinalState> <http://www.w3.org/2000/01/rdf-schema#label> "FinalState" .
+# 
+# https://purl.org/polo#FinalSystemConditions
+<https://purl.org/polo#FinalSystemConditions> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/polo#FinalSystemConditions> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://purl.org/polo#Conditions> .
+<https://purl.org/polo#FinalSystemConditions> <http://www.w3.org/2000/01/rdf-schema#comment> "System conditions recorded at the final state of a batch experiment." .
+<https://purl.org/polo#FinalSystemConditions> <http://www.w3.org/2000/01/rdf-schema#label> "FinalSystemConditions" .
+# 
+# https://purl.org/polo#Flowthrough
+<https://purl.org/polo#Flowthrough> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/polo#Flowthrough> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://purl.org/polo#ExperimentType> .
+<https://purl.org/polo#Flowthrough> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid15 .
+_:genid15 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://purl.org/polo#GasPhase> .
+_:genid15 <http://www.w3.org/2002/07/owl#onProperty> <https://purl.org/polo#hasPhase> .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://purl.org/polo#Flowthrough> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid16 .
+_:genid16 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://purl.org/polo#LiquidPhase> .
+_:genid16 <http://www.w3.org/2002/07/owl#onProperty> <https://purl.org/polo#hasPhase> .
+_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://purl.org/polo#Flowthrough> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid17 .
+_:genid17 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://purl.org/polo#SolidPhase> .
+_:genid17 <http://www.w3.org/2002/07/owl#onProperty> <https://purl.org/polo#hasPhase> .
+_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://purl.org/polo#Flowthrough> <http://www.w3.org/2000/01/rdf-schema#comment> "A continuous flowthrough experiment." .
+<https://purl.org/polo#Flowthrough> <http://www.w3.org/2000/01/rdf-schema#label> "Flowthrough" .
+# 
+# https://purl.org/polo#GasPhase
+<https://purl.org/polo#GasPhase> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/polo#GasPhase> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://purl.org/polo#Phases> .
+<https://purl.org/polo#GasPhase> <http://www.w3.org/2000/01/rdf-schema#comment> "The gas phase component of an experiment." .
+<https://purl.org/polo#GasPhase> <http://www.w3.org/2000/01/rdf-schema#label> "GasPhase" .
+# 
+# https://purl.org/polo#InitialState
+<https://purl.org/polo#InitialState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/polo#InitialState> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://purl.org/polo#ExperimentState> .
+<https://purl.org/polo#InitialState> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid18 .
+_:genid18 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://purl.org/polo#InitialSystemConditions> .
+_:genid18 <http://www.w3.org/2002/07/owl#onProperty> <https://purl.org/polo#hasConditions> .
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://purl.org/polo#InitialState> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid19 .
+_:genid19 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://purl.org/polo#GasPhase> .
+_:genid19 <http://www.w3.org/2002/07/owl#onProperty> <https://purl.org/polo#hasPhase> .
+_:genid19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://purl.org/polo#InitialState> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid20 .
+_:genid20 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://purl.org/polo#LiquidPhase> .
+_:genid20 <http://www.w3.org/2002/07/owl#onProperty> <https://purl.org/polo#hasPhase> .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://purl.org/polo#InitialState> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid21 .
+_:genid21 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://purl.org/polo#SolidPhase> .
+_:genid21 <http://www.w3.org/2002/07/owl#onProperty> <https://purl.org/polo#hasPhase> .
+_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://purl.org/polo#InitialState> <http://www.w3.org/2000/01/rdf-schema#comment> "The initial state of a batch experiment before conditions are applied." .
+<https://purl.org/polo#InitialState> <http://www.w3.org/2000/01/rdf-schema#label> "InitialState" .
+# 
+# https://purl.org/polo#InitialSystemConditions
+<https://purl.org/polo#InitialSystemConditions> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/polo#InitialSystemConditions> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://purl.org/polo#Conditions> .
+<https://purl.org/polo#InitialSystemConditions> <http://www.w3.org/2000/01/rdf-schema#comment> "System conditions recorded at the initial state of a batch experiment." .
+<https://purl.org/polo#InitialSystemConditions> <http://www.w3.org/2000/01/rdf-schema#label> "InitialSystemConditions" .
+# 
+# https://purl.org/polo#LiquidPhase
+<https://purl.org/polo#LiquidPhase> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/polo#LiquidPhase> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://purl.org/polo#Phases> .
+<https://purl.org/polo#LiquidPhase> <http://www.w3.org/2000/01/rdf-schema#comment> "The liquid phase component of an experiment." .
+<https://purl.org/polo#LiquidPhase> <http://www.w3.org/2000/01/rdf-schema#label> "LiquidPhase" .
+# 
+# https://purl.org/polo#LoadingConditions
+<https://purl.org/polo#LoadingConditions> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/polo#LoadingConditions> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://purl.org/polo#Conditions> .
+<https://purl.org/polo#LoadingConditions> <http://www.w3.org/2000/01/rdf-schema#comment> "Conditions at the loading stage of a batch experiment." .
+<https://purl.org/polo#LoadingConditions> <http://www.w3.org/2000/01/rdf-schema#label> "LoadingConditions" .
+# 
+# https://purl.org/polo#PaperMetadata
+<https://purl.org/polo#PaperMetadata> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/polo#PaperMetadata> <http://www.w3.org/2000/01/rdf-schema#comment> "Provenance information about the scientific paper in which the experiment was reported." .
+<https://purl.org/polo#PaperMetadata> <http://www.w3.org/2000/01/rdf-schema#label> "PaperMetadata" .
+# 
+# https://purl.org/polo#Phases
+<https://purl.org/polo#Phases> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/polo#Phases> <http://www.w3.org/2000/01/rdf-schema#comment> "The phases of matter present in an experiment." .
+<https://purl.org/polo#Phases> <http://www.w3.org/2000/01/rdf-schema#label> "Phases" .
+# 
+# https://purl.org/polo#SolidPhase
+<https://purl.org/polo#SolidPhase> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/polo#SolidPhase> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://purl.org/polo#Phases> .
+<https://purl.org/polo#SolidPhase> <http://www.w3.org/2000/01/rdf-schema#comment> "The solid phase component of an experiment." .
+<https://purl.org/polo#SolidPhase> <http://www.w3.org/2000/01/rdf-schema#label> "SolidPhase" .
+# 
+# https://purl.org/polo#Stationary
+<https://purl.org/polo#Stationary> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://purl.org/polo#Stationary> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://purl.org/polo#Flowthrough> .
+<https://purl.org/polo#Stationary> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid22 .
+_:genid22 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://purl.org/polo#LiquidPhase> .
+_:genid22 <http://www.w3.org/2002/07/owl#onProperty> <https://purl.org/polo#hasPhase> .
+_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://purl.org/polo#Stationary> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid23 .
+_:genid23 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://purl.org/polo#SolidPhase> .
+_:genid23 <http://www.w3.org/2002/07/owl#onProperty> <https://purl.org/polo#hasPhase> .
+_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://purl.org/polo#Stationary> <http://www.w3.org/2000/01/rdf-schema#comment> "The stationary component of a flowthrough experiment." .
+<https://purl.org/polo#Stationary> <http://www.w3.org/2000/01/rdf-schema#label> "Stationary" .
+# 
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

@@ -1,0 +1,613 @@
+@prefix : <https://purl.org/polo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://purl.org/polo#> .
+
+<https://purl.org/polo> rdf:type owl:Ontology ;
+                         owl:imports <http://purl.obolibrary.org/obo/uo/releases/2023-05-25/uo.owl> ;
+                         <http://purl.org/dc/elements/1.1/creator> "Shweta U. Narkar" ;
+                         <http://purl.org/dc/elements/1.1/description> "POLO provides a structured vocabulary for annotating and querying experimental prebiotic chemistry data, covering batch and continuous flowthrough experiment types." ;
+                         rdfs:comment "Ontology for experimental prebiotic chemistry. Developed as part of the EORE (Executable Online Resource of Experimental Data) project at Rensselaer Polytechnic Institute." ;
+                         rdfs:label "Prebiotic Origins of Life Ontology (POLO)" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+<http://purl.org/dc/elements/1.1/description> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://purl.org/polo#hasConditions
+:hasConditions rdf:type owl:ObjectProperty ;
+               rdfs:comment "Links an experiment state to its system conditions." ;
+               rdfs:label "hasConditions" .
+
+
+###  https://purl.org/polo#hasExperimentType
+:hasExperimentType rdf:type owl:ObjectProperty ;
+                   rdfs:domain :ExperimentSetup ;
+                   rdfs:range :ExperimentType ;
+                   rdfs:label "hasExperimentType" .
+
+
+###  https://purl.org/polo#hasMeasurement
+:hasMeasurement rdf:type owl:ObjectProperty ;
+                rdfs:comment "Links a phase or condition to its method of measurement." ;
+                rdfs:label "hasMeasurement" .
+
+
+###  https://purl.org/polo#hasMetadata
+:hasMetadata rdf:type owl:ObjectProperty ;
+             rdfs:domain :Experiment ;
+             rdfs:range :PaperMetadata ;
+             rdfs:comment "Links an experiment to its paper metadata provenance." ;
+             rdfs:label "hasMetadata" .
+
+
+###  https://purl.org/polo#hasPhase
+:hasPhase rdf:type owl:ObjectProperty ;
+          rdfs:comment "Links an experiment state to one of its phases (gas, liquid, solid)." ;
+          rdfs:label "hasPhase" .
+
+
+###  https://purl.org/polo#hasSetup
+:hasSetup rdf:type owl:ObjectProperty ;
+          rdfs:domain :Experiment ;
+          rdfs:range :ExperimentSetup ;
+          rdfs:comment "Links an experiment to its experimental setup." ;
+          rdfs:label "hasSetup" .
+
+
+###  https://purl.org/polo#hasState
+:hasState rdf:type owl:ObjectProperty ;
+          rdfs:domain :Batch ;
+          rdfs:range :ExperimentState ;
+          rdfs:comment "Links a batch experiment to its initial or final state." ;
+          rdfs:label "hasState" .
+
+
+###  https://purl.org/polo#hasUnit
+:hasUnit rdf:type owl:ObjectProperty ;
+         rdfs:comment "Links a measurement to its unit of measurement from the Units Ontology." ;
+         rdfs:label "hasUnit" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://purl.org/polo#ambientAtmosphere
+:ambientAtmosphere rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :GasPhase ;
+                   rdfs:range xsd:boolean ;
+                   rdfs:label "ambientAtmosphere" .
+
+
+###  https://purl.org/polo#containerMaterial
+:containerMaterial rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :LoadingConditions ;
+                   rdfs:range xsd:string ;
+                   rdfs:label "containerMaterial" .
+
+
+###  https://purl.org/polo#durationHrs
+:durationHrs rdf:type owl:DatatypeProperty ;
+             rdfs:domain :ExperimentSetup ;
+             rdfs:range xsd:decimal ;
+             rdfs:comment "Duration of the experiment in hours." ;
+             rdfs:label "durationHrs" .
+
+
+###  https://purl.org/polo#formOfAmorphSolid
+:formOfAmorphSolid rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :SolidPhase ;
+                   rdfs:range xsd:string ;
+                   rdfs:comment "Form of amorphous solid e.g. chunk or powder." ;
+                   rdfs:label "formOfAmorphSolid" .
+
+
+###  https://purl.org/polo#freqOfMonomer
+:freqOfMonomer rdf:type owl:DatatypeProperty ;
+               rdfs:domain :LiquidPhase ;
+               rdfs:range xsd:integer ;
+               rdfs:label "freqOfMonomer" .
+
+
+###  https://purl.org/polo#gasConcentration
+:gasConcentration rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :GasPhase ;
+                  rdfs:range xsd:decimal ;
+                  rdfs:label "gasConcentration" .
+
+
+###  https://purl.org/polo#gasIsMeasured
+:gasIsMeasured rdf:type owl:DatatypeProperty ;
+               rdfs:domain :GasPhase ;
+               rdfs:range xsd:boolean ;
+               rdfs:label "gasIsMeasured" .
+
+
+###  https://purl.org/polo#gasName
+:gasName rdf:type owl:DatatypeProperty ;
+         rdfs:domain :GasPhase ;
+         rdfs:range xsd:string ;
+         rdfs:label "gasName" .
+
+
+###  https://purl.org/polo#isIsobaric
+:isIsobaric rdf:type owl:DatatypeProperty ;
+            rdfs:range xsd:boolean ;
+            rdfs:label "isIsobaric" .
+
+
+###  https://purl.org/polo#isIsochoric
+:isIsochoric rdf:type owl:DatatypeProperty ;
+             rdfs:range xsd:boolean ;
+             rdfs:label "isIsochoric" .
+
+
+###  https://purl.org/polo#isIsothermal
+:isIsothermal rdf:type owl:DatatypeProperty ;
+              rdfs:range xsd:boolean ;
+              rdfs:label "isIsothermal" .
+
+
+###  https://purl.org/polo#isPolymer
+:isPolymer rdf:type owl:DatatypeProperty ;
+           rdfs:domain :LiquidPhase ;
+           rdfs:range xsd:boolean ;
+           rdfs:label "isPolymer" .
+
+
+###  https://purl.org/polo#isRoomTemperature
+:isRoomTemperature rdf:type owl:DatatypeProperty ;
+                   rdfs:range xsd:boolean ;
+                   rdfs:label "isRoomTemperature" .
+
+
+###  https://purl.org/polo#liquidIsMeasured
+:liquidIsMeasured rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :LiquidPhase ;
+                  rdfs:range xsd:boolean ;
+                  rdfs:label "liquidIsMeasured" .
+
+
+###  https://purl.org/polo#maxGrainSize
+:maxGrainSize rdf:type owl:DatatypeProperty ;
+              rdfs:domain :SolidPhase ;
+              rdfs:range xsd:decimal ;
+              rdfs:comment "Maximum grain size in micrometres." ;
+              rdfs:label "maxGrainSize" .
+
+
+###  https://purl.org/polo#minGrainSize
+:minGrainSize rdf:type owl:DatatypeProperty ;
+              rdfs:domain :SolidPhase ;
+              rdfs:range xsd:decimal ;
+              rdfs:comment "Minimum grain size in micrometres." ;
+              rdfs:label "minGrainSize" .
+
+
+###  https://purl.org/polo#monomerName
+:monomerName rdf:type owl:DatatypeProperty ;
+             rdfs:domain :LiquidPhase ;
+             rdfs:range xsd:string ;
+             rdfs:label "monomerName" .
+
+
+###  https://purl.org/polo#noOfUniqueMonomers
+:noOfUniqueMonomers rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :LiquidPhase ;
+                    rdfs:range xsd:integer ;
+                    rdfs:label "noOfUniqueMonomers" .
+
+
+###  https://purl.org/polo#paperAuthor
+:paperAuthor rdf:type owl:DatatypeProperty ;
+             rdfs:domain :PaperMetadata ;
+             rdfs:range xsd:string ;
+             rdfs:label "paperAuthor" .
+
+
+###  https://purl.org/polo#paperDoi
+:paperDoi rdf:type owl:DatatypeProperty ;
+          rdfs:domain :PaperMetadata ;
+          rdfs:range xsd:string ;
+          rdfs:label "paperDoi" .
+
+
+###  https://purl.org/polo#paperJournal
+:paperJournal rdf:type owl:DatatypeProperty ;
+              rdfs:domain :PaperMetadata ;
+              rdfs:range xsd:string ;
+              rdfs:label "paperJournal" .
+
+
+###  https://purl.org/polo#paperTitle
+:paperTitle rdf:type owl:DatatypeProperty ;
+            rdfs:domain :PaperMetadata ;
+            rdfs:range xsd:string ;
+            rdfs:label "paperTitle" .
+
+
+###  https://purl.org/polo#paperYear
+:paperYear rdf:type owl:DatatypeProperty ;
+           rdfs:domain :PaperMetadata ;
+           rdfs:range xsd:integer ;
+           rdfs:label "paperYear" .
+
+
+###  https://purl.org/polo#particleSizeUnknown
+:particleSizeUnknown rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :SolidPhase ;
+                     rdfs:range xsd:boolean ;
+                     rdfs:label "particleSizeUnknown" .
+
+
+###  https://purl.org/polo#polymerLength
+:polymerLength rdf:type owl:DatatypeProperty ;
+               rdfs:domain :LiquidPhase ;
+               rdfs:range xsd:decimal ;
+               rdfs:comment "Maximum or average polymer length observed." ;
+               rdfs:label "polymerLength" .
+
+
+###  https://purl.org/polo#polymerLengthUnknown
+:polymerLengthUnknown rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :LiquidPhase ;
+                      rdfs:range xsd:boolean ;
+                      rdfs:label "polymerLengthUnknown" .
+
+
+###  https://purl.org/polo#pressure
+:pressure rdf:type owl:DatatypeProperty ;
+          rdfs:range xsd:decimal ;
+          rdfs:comment "System pressure in bars." ;
+          rdfs:label "pressure" .
+
+
+###  https://purl.org/polo#replicatesCount
+:replicatesCount rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :ExperimentSetup ;
+                 rdfs:range xsd:integer ;
+                 rdfs:label "replicatesCount" .
+
+
+###  https://purl.org/polo#solidIsMeasured
+:solidIsMeasured rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :SolidPhase ;
+                 rdfs:range xsd:boolean ;
+                 rdfs:label "solidIsMeasured" .
+
+
+###  https://purl.org/polo#solidMass
+:solidMass rdf:type owl:DatatypeProperty ;
+           rdfs:domain :SolidPhase ;
+           rdfs:range xsd:decimal ;
+           rdfs:comment "Solid mass in milligrams." ;
+           rdfs:label "solidMass" .
+
+
+###  https://purl.org/polo#solidName
+:solidName rdf:type owl:DatatypeProperty ;
+           rdfs:domain :SolidPhase ;
+           rdfs:range xsd:string ;
+           rdfs:label "solidName" .
+
+
+###  https://purl.org/polo#solidType
+:solidType rdf:type owl:DatatypeProperty ;
+           rdfs:domain :SolidPhase ;
+           rdfs:range xsd:string ;
+           rdfs:comment "Type of solid e.g. mineral, amorphous, rock, other." ;
+           rdfs:label "solidType" .
+
+
+###  https://purl.org/polo#soluteConcentration
+:soluteConcentration rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :LiquidPhase ;
+                     rdfs:range xsd:decimal ;
+                     rdfs:comment "Solute concentration in mM/L." ;
+                     rdfs:label "soluteConcentration" .
+
+
+###  https://purl.org/polo#soluteConcentrationUnknown
+:soluteConcentrationUnknown rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :LiquidPhase ;
+                            rdfs:range xsd:boolean ;
+                            rdfs:label "soluteConcentrationUnknown" .
+
+
+###  https://purl.org/polo#soluteName
+:soluteName rdf:type owl:DatatypeProperty ;
+            rdfs:domain :LiquidPhase ;
+            rdfs:range xsd:string ;
+            rdfs:label "soluteName" .
+
+
+###  https://purl.org/polo#solventName
+:solventName rdf:type owl:DatatypeProperty ;
+             rdfs:domain :LiquidPhase ;
+             rdfs:range xsd:string ;
+             rdfs:label "solventName" .
+
+
+###  https://purl.org/polo#solventType
+:solventType rdf:type owl:DatatypeProperty ;
+             rdfs:domain :LiquidPhase ;
+             rdfs:range xsd:string ;
+             rdfs:comment "Type of solvent e.g. organic or inorganic." ;
+             rdfs:label "solventType" .
+
+
+###  https://purl.org/polo#systemType
+:systemType rdf:type owl:DatatypeProperty ;
+            rdfs:domain :ExperimentSetup ;
+            rdfs:range xsd:string ;
+            rdfs:label "systemType" .
+
+
+###  https://purl.org/polo#temperature
+:temperature rdf:type owl:DatatypeProperty ;
+             rdfs:range xsd:decimal ;
+             rdfs:comment "System temperature in Celsius." ;
+             rdfs:label "temperature" .
+
+
+###  https://purl.org/polo#unknownReplicatesCount
+:unknownReplicatesCount rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :ExperimentSetup ;
+                        rdfs:range xsd:boolean ;
+                        rdfs:label "unknownReplicatesCount" .
+
+
+###  https://purl.org/polo#volume
+:volume rdf:type owl:DatatypeProperty ;
+        rdfs:range xsd:decimal ;
+        rdfs:comment "System volume in millilitres." ;
+        rdfs:label "volume" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://purl.org/polo#Analysis
+:Analysis rdf:type owl:Class ;
+          rdfs:subClassOf :Flowthrough ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasPhase ;
+                            owl:someValuesFrom :GasPhase
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasPhase ;
+                            owl:someValuesFrom :LiquidPhase
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasPhase ;
+                            owl:someValuesFrom :SolidPhase
+                          ] ;
+          rdfs:comment "The analysis component of a flowthrough experiment." ;
+          rdfs:label "Analysis" .
+
+
+###  https://purl.org/polo#Batch
+:Batch rdf:type owl:Class ;
+       rdfs:subClassOf :ExperimentType ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasConditions ;
+                         owl:someValuesFrom :LoadingConditions
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasState ;
+                         owl:someValuesFrom :FinalState
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasState ;
+                         owl:someValuesFrom :InitialState
+                       ] ;
+       rdfs:comment "A batch experiment where a measured amount of chemical compositions interact over a fixed duration with no additions during the process." ;
+       rdfs:label "Batch" .
+
+
+###  https://purl.org/polo#Conditions
+:Conditions rdf:type owl:Class ;
+            rdfs:comment "System conditions for an experiment at a given state." ;
+            rdfs:label "Conditions" .
+
+
+###  https://purl.org/polo#Continuous
+:Continuous rdf:type owl:Class ;
+            rdfs:subClassOf :Flowthrough ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasPhase ;
+                              owl:someValuesFrom :GasPhase
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasPhase ;
+                              owl:someValuesFrom :LiquidPhase
+                            ] ;
+            rdfs:comment "The continuous component of a flowthrough experiment where fluid passes through the stationary stage." ;
+            rdfs:label "Continuous" .
+
+
+###  https://purl.org/polo#Experiment
+:Experiment rdf:type owl:Class ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasMetadata ;
+                              owl:someValuesFrom :PaperMetadata
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasSetup ;
+                              owl:someValuesFrom :ExperimentSetup
+                            ] ;
+            rdfs:comment "The top-level class representing a prebiotic chemistry experiment reported in a scientific paper." ;
+            rdfs:label "Experiment" .
+
+
+###  https://purl.org/polo#ExperimentSetup
+:ExperimentSetup rdf:type owl:Class ;
+                 rdfs:comment "Describes the experimental setup parameters for a given experiment." ;
+                 rdfs:label "ExperimentSetup" .
+
+
+###  https://purl.org/polo#ExperimentState
+:ExperimentState rdf:type owl:Class ;
+                 rdfs:comment "A state of a batch experiment, either initial or final." ;
+                 rdfs:label "ExperimentState" .
+
+
+###  https://purl.org/polo#ExperimentType
+:ExperimentType rdf:type owl:Class ;
+                rdfs:subClassOf :ExperimentSetup ;
+                rdfs:comment "The type of prebiotic chemistry experiment." ;
+                rdfs:label "ExperimentType" .
+
+
+###  https://purl.org/polo#FinalState
+:FinalState rdf:type owl:Class ;
+            rdfs:subClassOf :ExperimentState ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasConditions ;
+                              owl:someValuesFrom :FinalSystemConditions
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasPhase ;
+                              owl:someValuesFrom :GasPhase
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasPhase ;
+                              owl:someValuesFrom :LiquidPhase
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasPhase ;
+                              owl:someValuesFrom :SolidPhase
+                            ] ;
+            rdfs:comment "The final state of a batch experiment after conditions have been applied." ;
+            rdfs:label "FinalState" .
+
+
+###  https://purl.org/polo#FinalSystemConditions
+:FinalSystemConditions rdf:type owl:Class ;
+                       rdfs:subClassOf :Conditions ;
+                       rdfs:comment "System conditions recorded at the final state of a batch experiment." ;
+                       rdfs:label "FinalSystemConditions" .
+
+
+###  https://purl.org/polo#Flowthrough
+:Flowthrough rdf:type owl:Class ;
+             rdfs:subClassOf :ExperimentType ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasPhase ;
+                               owl:someValuesFrom :GasPhase
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasPhase ;
+                               owl:someValuesFrom :LiquidPhase
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasPhase ;
+                               owl:someValuesFrom :SolidPhase
+                             ] ;
+             rdfs:comment "A continuous flowthrough experiment." ;
+             rdfs:label "Flowthrough" .
+
+
+###  https://purl.org/polo#GasPhase
+:GasPhase rdf:type owl:Class ;
+          rdfs:subClassOf :Phases ;
+          rdfs:comment "The gas phase component of an experiment." ;
+          rdfs:label "GasPhase" .
+
+
+###  https://purl.org/polo#InitialState
+:InitialState rdf:type owl:Class ;
+              rdfs:subClassOf :ExperimentState ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasConditions ;
+                                owl:someValuesFrom :InitialSystemConditions
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasPhase ;
+                                owl:someValuesFrom :GasPhase
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasPhase ;
+                                owl:someValuesFrom :LiquidPhase
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasPhase ;
+                                owl:someValuesFrom :SolidPhase
+                              ] ;
+              rdfs:comment "The initial state of a batch experiment before conditions are applied." ;
+              rdfs:label "InitialState" .
+
+
+###  https://purl.org/polo#InitialSystemConditions
+:InitialSystemConditions rdf:type owl:Class ;
+                         rdfs:subClassOf :Conditions ;
+                         rdfs:comment "System conditions recorded at the initial state of a batch experiment." ;
+                         rdfs:label "InitialSystemConditions" .
+
+
+###  https://purl.org/polo#LiquidPhase
+:LiquidPhase rdf:type owl:Class ;
+             rdfs:subClassOf :Phases ;
+             rdfs:comment "The liquid phase component of an experiment." ;
+             rdfs:label "LiquidPhase" .
+
+
+###  https://purl.org/polo#LoadingConditions
+:LoadingConditions rdf:type owl:Class ;
+                   rdfs:subClassOf :Conditions ;
+                   rdfs:comment "Conditions at the loading stage of a batch experiment." ;
+                   rdfs:label "LoadingConditions" .
+
+
+###  https://purl.org/polo#PaperMetadata
+:PaperMetadata rdf:type owl:Class ;
+               rdfs:comment "Provenance information about the scientific paper in which the experiment was reported." ;
+               rdfs:label "PaperMetadata" .
+
+
+###  https://purl.org/polo#Phases
+:Phases rdf:type owl:Class ;
+        rdfs:comment "The phases of matter present in an experiment." ;
+        rdfs:label "Phases" .
+
+
+###  https://purl.org/polo#SolidPhase
+:SolidPhase rdf:type owl:Class ;
+            rdfs:subClassOf :Phases ;
+            rdfs:comment "The solid phase component of an experiment." ;
+            rdfs:label "SolidPhase" .
+
+
+###  https://purl.org/polo#Stationary
+:Stationary rdf:type owl:Class ;
+            rdfs:subClassOf :Flowthrough ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasPhase ;
+                              owl:someValuesFrom :LiquidPhase
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasPhase ;
+                              owl:someValuesFrom :SolidPhase
+                            ] ;
+            rdfs:comment "The stationary component of a flowthrough experiment." ;
+            rdfs:label "Stationary" .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
