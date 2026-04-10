@@ -366,6 +366,7 @@ a:hover {
 #main-content h5 {
   color: #000000;
   font-family: 'Inter', sans-serif;
+  scroll-margin-top: calc(var(--topnav-height) + 1.5rem);
 }
 
 /* ── Force .head (author/metadata) box to white ── */
