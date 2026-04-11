@@ -80,3 +80,7 @@ Experimental data was sourced from the following works:
 Riggi, V. S. (2019). *Constraining Prebiotic RNA Oligomerization in the Context of Hadean-Archaean Environments* (Doctoral dissertation, Rensselaer Polytechnic Institute).
 
 Riggi, V. S., Watson, E. B., Steele, A., & Rogers, K. L. (2023). Mineral-mediated oligoribonucleotide condensation: Broadening the scope of prebiotic possibilities on the early Earth. *Life, 13*(9), 1899.
+
+## Acknowledgements
+
+The documentation website for this ontology was developed using [Claude Code](https://claude.ai/code) (Anthropic) as a coding assistant, with POLO serving as a use case for learning AI-assisted development workflows. All ontology content, design decisions, and base code are the author's own work.
