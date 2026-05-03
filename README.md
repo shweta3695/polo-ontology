@@ -77,7 +77,7 @@ The experimental dataset is not included in this repository. For data access, pl
 
 Experimental data was sourced from the following works:
 
-Riggi, V. S. (2019). *Constraining Prebiotic RNA Oligomerization in the Context of Hadean-Archaean Environments* (Doctoral dissertation, Rensselaer Polytechnic Institute).
+Riggi, V. S. (2019). *Constraining Prebiotic RNA Oligomerization in the Context of Hadean-Archaean Environments* (Doctoral dissertation, Rensselaer Polytechnic Institute), 2019.
 
 Riggi, V. S., Watson, E. B., Steele, A., & Rogers, K. L. (2023). Mineral-mediated oligoribonucleotide condensation: Broadening the scope of prebiotic possibilities on the early Earth. *Life, 13*(9), 1899.
 
