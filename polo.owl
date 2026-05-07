@@ -6,11 +6,13 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:dc="http://purl.org/dc/elements/1.1/">
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:uo="http://purl.obolibrary.org/obo/">
 
     <owl:Ontology rdf:about="https://purl.org/polo">
         <rdfs:label>Prebiotic Origins of Life Ontology (POLO)</rdfs:label>
         <rdfs:comment>Ontology for experimental prebiotic chemistry. Developed as part of the EORE (Executable Online Resource of Experimental Data) project at Rensselaer Polytechnic Institute.</rdfs:comment>
+        <dc:title>Prebiotic Origins of Life Ontology (POLO)</dc:title>
         <dc:creator>Shweta U. Narkar</dc:creator>
         <dc:description>POLO provides a structured vocabulary for annotating and querying experimental prebiotic chemistry data, covering batch and continuous flowthrough experiment types.</dc:description>
     </owl:Ontology>
@@ -50,26 +52,32 @@
 
     <!-- https://purl.org/polo#hasConditions -->
     <owl:ObjectProperty rdf:about="https://purl.org/polo#hasConditions">
+        <rdfs:range rdf:resource="https://purl.org/polo#Conditions"/>
         <rdfs:label>hasConditions</rdfs:label>
-        <rdfs:comment>Links an experiment state to its system conditions.</rdfs:comment>
+        <rdfs:comment>Links an experiment state or experiment type to its system conditions.</rdfs:comment>
     </owl:ObjectProperty>
 
     <!-- https://purl.org/polo#hasPhase -->
     <owl:ObjectProperty rdf:about="https://purl.org/polo#hasPhase">
+        <rdfs:range rdf:resource="https://purl.org/polo#Phases"/>
         <rdfs:label>hasPhase</rdfs:label>
-        <rdfs:comment>Links an experiment state to one of its phases (gas, liquid, solid).</rdfs:comment>
+        <rdfs:comment>Links an experiment state or flowthrough component to one of its phases (gas, liquid, solid).</rdfs:comment>
     </owl:ObjectProperty>
 
     <!-- https://purl.org/polo#hasUnit -->
     <owl:ObjectProperty rdf:about="https://purl.org/polo#hasUnit">
+        <rdfs:domain rdf:resource="https://purl.org/polo#Phases"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/UO_0000000"/>
         <rdfs:label>hasUnit</rdfs:label>
-        <rdfs:comment>Links a measurement to its unit of measurement from the Units Ontology.</rdfs:comment>
+        <rdfs:comment>Links a phase to its unit of measurement. Range is aligned with the Units Ontology (UO) top-level unit class (UO:0000000). Full unit annotation planned for a future release.</rdfs:comment>
     </owl:ObjectProperty>
 
     <!-- https://purl.org/polo#hasMeasurement -->
     <owl:ObjectProperty rdf:about="https://purl.org/polo#hasMeasurement">
+        <rdfs:domain rdf:resource="https://purl.org/polo#Phases"/>
+        <rdfs:range rdf:resource="https://purl.org/polo#MethodOfMeasurement"/>
         <rdfs:label>hasMeasurement</rdfs:label>
-        <rdfs:comment>Links a phase or condition to its method of measurement.</rdfs:comment>
+        <rdfs:comment>Links a phase to its method of measurement.</rdfs:comment>
     </owl:ObjectProperty>
 
     <!-- https://purl.org/polo#hasState -->
@@ -700,6 +708,12 @@
         <rdfs:subClassOf rdf:resource="https://purl.org/polo#Phases"/>
         <rdfs:label>SolidPhase</rdfs:label>
         <rdfs:comment>The solid phase component of an experiment.</rdfs:comment>
+    </owl:Class>
+
+    <!-- https://purl.org/polo#MethodOfMeasurement -->
+    <owl:Class rdf:about="https://purl.org/polo#MethodOfMeasurement">
+        <rdfs:label>MethodOfMeasurement</rdfs:label>
+        <rdfs:comment>The analytical instrument or technique used to measure a phase in an experiment, e.g. MALDI-TOF, UV-VIS, HPLC.</rdfs:comment>
     </owl:Class>
 
 </rdf:RDF>
